@@ -10,7 +10,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 const WHATSAPP = `https://wa.me/17866700164?text=${WHATSAPP_MESSAGE}`;
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
-const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
+const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
 
 export const Route = createFileRoute("/")({
   component: Index,
