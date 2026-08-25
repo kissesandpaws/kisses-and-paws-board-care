@@ -363,21 +363,30 @@ function Index() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img
-                src={salon}
-                alt="Sala de espera del salón de grooming con cojines rosas y grises"
-                width={1280}
-                height={720}
-                loading="lazy"
-                className="col-span-2 aspect-[16/9] w-full rounded-3xl object-cover"
-              />
-              <div className="col-span-2 flex items-center justify-between rounded-3xl border border-border bg-blush/60 p-5">
-                <div>
-                  <p className="font-display text-lg">@kissesandpaws</p>
-                  <p className="text-xs text-muted-foreground">Instagram · TikTok</p>
-                </div>
-                <span className="font-bold text-primary">Síguenos →</span>
+              <div className="col-span-2 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+                <iframe
+                  title="Ubicación de Kisses and Paws Board and Care en Google Maps"
+                  src={MAPS_EMBED}
+                  width="100%"
+                  height="320"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="aspect-[16/9] w-full border-0"
+                  allowFullScreen
+                />
               </div>
+              <a
+                href={MAPS}
+                target="_blank"
+                rel="noreferrer"
+                className="col-span-2 flex items-center justify-between rounded-3xl border border-border bg-blush/60 p-5 transition-colors hover:border-primary/40"
+              >
+                <div>
+                  <p className="font-display text-lg">Obtener indicaciones</p>
+                  <p className="text-xs text-muted-foreground">5760 SW 8th St Suite 300, Miami</p>
+                </div>
+                <span className="font-bold text-primary">Abrir Google Maps →</span>
+              </a>
             </div>
           </div>
         </section>
