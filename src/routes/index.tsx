@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroDog from "@/assets/hero-dog.jpg";
-import salon from "@/assets/salon.jpg";
 
 const PHONE = "+17866700164";
 const PHONE_DISPLAY = "+1 786-670-0164";
@@ -174,7 +173,7 @@ function Index() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  Reservar por WhatsApp
+                  Reservar grooming y boarding
                 </a>
                 <a
                   href={MAPS}
@@ -350,7 +349,7 @@ function Index() {
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  Escríbenos
+                  Reservar por WhatsApp
                 </a>
                 <a
                   href={MAPS}
