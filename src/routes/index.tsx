@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroDog from "@/assets/hero-dog.jpg";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const PHONE = "+17866700164";
 const PHONE_DISPLAY = "+1 786-670-0164";
@@ -116,12 +117,18 @@ function Index() {
       <header className="border-b border-border bg-background/85 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="grid size-10 place-items-center rounded-full bg-primary font-display text-lg text-primary-foreground">
-              K
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="Logo de Kisses and Paws Board and Care"
+              width={822}
+              height={661}
+              className="h-14 w-auto"
+            />
             <div className="leading-tight">
-              <p className="font-display text-lg">Kisses &amp; Paws</p>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-rose">Board &amp; Care</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
+                Board &amp; Care
+              </p>
+              <p className="text-[11px] text-muted-foreground">West Miami, FL</p>
             </div>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-semibold text-muted-foreground md:flex">
@@ -405,9 +412,18 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-ash sm:flex-row">
-          <p className="font-display text-foreground">
-            Kisses &amp; Paws <span className="text-primary">Board &amp; Care</span>
-          </p>
+          <div className="flex items-center gap-2">
+            <img
+              src={logoAsset.url}
+              alt="Kisses and Paws"
+              width={822}
+              height={661}
+              className="h-9 w-auto"
+            />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rose">
+              Board &amp; Care
+            </p>
+          </div>
           <p>© 2026 · West Miami, Florida · Hecho con amor para perritos</p>
         </div>
       </footer>
