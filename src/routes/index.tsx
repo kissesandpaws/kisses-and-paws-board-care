@@ -116,7 +116,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground antialiased">
       <header className="border-b border-border bg-background/85 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-start gap-3">
             <img
               src={logoAsset.url}
               alt="Logo de Kisses and Paws Board and Care"
@@ -128,7 +128,10 @@ function Index() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
                 Board &amp; Care
               </p>
-              <p className="text-[11px] text-muted-foreground">West Miami, FL</p>
+              <p className="max-w-[260px] text-[11px] leading-snug text-muted-foreground">
+                West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
+                33144
+              </p>
             </div>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-semibold text-muted-foreground md:flex">
