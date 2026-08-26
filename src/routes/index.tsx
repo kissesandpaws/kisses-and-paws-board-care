@@ -412,9 +412,18 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-ash sm:flex-row">
-          <p className="font-display text-foreground">
-            Kisses &amp; Paws <span className="text-primary">Board &amp; Care</span>
-          </p>
+          <div className="flex items-center gap-2">
+            <img
+              src={logoAsset.url}
+              alt="Kisses and Paws"
+              width={822}
+              height={661}
+              className="h-9 w-auto"
+            />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rose">
+              Board &amp; Care
+            </p>
+          </div>
           <p>© 2026 · West Miami, Florida · Hecho con amor para perritos</p>
         </div>
       </footer>
