@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroDog from "@/assets/hero-dog.jpg";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const PHONE = "+17866700164";
 const PHONE_DISPLAY = "+1 786-670-0164";
@@ -116,12 +117,18 @@ function Index() {
       <header className="border-b border-border bg-background/85 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="grid size-10 place-items-center rounded-full bg-primary font-display text-lg text-primary-foreground">
-              K
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="Logo de Kisses and Paws Board and Care"
+              width={822}
+              height={661}
+              className="h-12 w-auto"
+            />
             <div className="leading-tight">
-              <p className="font-display text-lg">Kisses &amp; Paws</p>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-rose">Board &amp; Care</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
+                Board &amp; Care
+              </p>
+              <p className="text-[11px] text-muted-foreground">West Miami, FL</p>
             </div>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-semibold text-muted-foreground md:flex">
