@@ -122,7 +122,7 @@ function Index() {
               alt="Logo de Kisses and Paws Board and Care"
               width={822}
               height={661}
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
             <div className="leading-tight">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
