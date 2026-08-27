@@ -128,7 +128,7 @@ function Index() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
                 Board &amp; Care
               </p>
-              <p className="max-w-[260px] text-[11px] leading-snug text-muted-foreground">
+              <p className="max-w-[280px] text-xs leading-snug text-muted-foreground">
                 West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
                 33144
               </p>
