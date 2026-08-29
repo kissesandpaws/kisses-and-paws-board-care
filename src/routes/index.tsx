@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import heroDog from "@/assets/hero-dog.jpg";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -66,24 +66,28 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     icon: "✂",
+    slug: "full-groom",
     title: "Full Groom",
     text: "Baño, cepillado, corte de pelo y acabado detallado a la medida de tu perrito.",
     tone: "blush",
   },
   {
     icon: "🐾",
+    slug: "puppy-groom",
     title: "Puppy Groom",
     text: "Primeros baños con paciencia y calma para cachorros que apenas empiezan.",
     tone: "muted",
   },
   {
     icon: "🛁",
+    slug: "bath-tidy",
     title: "Bath & Tidy",
     text: "Baño refrescante, uñas, oídos y retoque de cara y patas entre cortes.",
     tone: "secondary",
   },
   {
     icon: "🌙",
+    slug: "board-care",
     title: "Board & Care",
     text: "Hospedaje supervisado en un espacio limpio, seguro y lleno de amigos nuevos.",
     tone: "dark",
@@ -262,12 +266,15 @@ function Index() {
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
-              <div
+              <Link
                 key={s.title}
+                to="/servicios/$slug"
+                params={{ slug: s.slug }}
+                aria-label={`Ver detalles del servicio ${s.title}`}
                 className={
                   s.tone === "dark"
-                    ? "rounded-3xl bg-ink p-6 text-background"
-                    : "rounded-3xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
+                    ? "block rounded-3xl bg-ink p-6 text-background transition-transform hover:-translate-y-1"
+                    : "block rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40"
                 }
               >
                 <div
@@ -291,7 +298,14 @@ function Index() {
                 >
                   {s.text}
                 </p>
-              </div>
+                <p
+                  className={`mt-4 text-sm font-bold ${
+                    s.tone === "dark" ? "text-rose" : "text-primary"
+                  }`}
+                >
+                  Ver servicio →
+                </p>
+              </Link>
             ))}
           </div>
         </section>
