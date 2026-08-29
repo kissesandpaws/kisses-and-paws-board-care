@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import heroDog from "@/assets/hero-dog.jpg";
+import heroSalonDogAsset from "@/assets/hero-salon-dog.jpeg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const PHONE = "+17866700164";
@@ -213,8 +213,8 @@ function Index() {
             <div className="md:col-span-6">
               <div className="relative">
                 <img
-                  src={heroDog}
-                  alt="Yorkie recién bañado y peinado con un lazo rosa en el salón de grooming"
+                  src={heroSalonDogAsset.url}
+                  alt="Perrito feliz en el salón de Kisses and Paws con letrero neon rosa"
                   width={1024}
                   height={1280}
                   className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[var(--shadow-soft)]"
