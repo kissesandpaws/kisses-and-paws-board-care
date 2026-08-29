@@ -148,25 +148,42 @@ function ServicePage() {
               <h2 className="font-display text-3xl">Momentos de {service.title}</h2>
             </div>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {service.gallery.map((g) => (
-              <div
-                key={g.label}
-                className={`flex aspect-[4/5] flex-col items-center justify-center rounded-3xl border border-border p-6 text-center ${
-                  g.tone === "blush"
-                    ? "bg-blush"
-                    : g.tone === "muted"
-                      ? "bg-muted"
-                      : "bg-secondary"
-                }`}
-              >
-                <span className="mb-3 text-4xl" aria-hidden="true">
-                  🐾
-                </span>
-                <p className="font-display text-lg text-crimson">{g.label}</p>
-                <p className="mt-1 text-xs text-muted-foreground">Foto próximamente</p>
-              </div>
-            ))}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {service.gallery.map((g) =>
+              g.src ? (
+                <figure
+                  key={g.label}
+                  className="overflow-hidden rounded-3xl border border-border bg-card"
+                >
+                  <img
+                    src={g.src}
+                    alt={`${service.title} — ${g.label} en Kisses and Paws`}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 font-display text-base text-crimson">
+                    {g.label}
+                  </figcaption>
+                </figure>
+              ) : (
+                <div
+                  key={g.label}
+                  className={`flex aspect-[4/5] flex-col items-center justify-center rounded-3xl border border-border p-6 text-center ${
+                    g.tone === "blush"
+                      ? "bg-blush"
+                      : g.tone === "muted"
+                        ? "bg-muted"
+                        : "bg-secondary"
+                  }`}
+                >
+                  <span className="mb-3 text-4xl" aria-hidden="true">
+                    🐾
+                  </span>
+                  <p className="font-display text-lg text-crimson">{g.label}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Foto próximamente</p>
+                </div>
+              )
+            )}
           </div>
         </section>
 
