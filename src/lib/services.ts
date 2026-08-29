@@ -1,3 +1,10 @@
+import fg1 from "@/assets/full-groom/fg-1.jpeg.asset.json";
+import fg2 from "@/assets/full-groom/fg-2.jpeg.asset.json";
+import fg3 from "@/assets/full-groom/fg-3.jpeg.asset.json";
+import fg4 from "@/assets/full-groom/fg-4.jpeg.asset.json";
+import fg5 from "@/assets/full-groom/fg-5.jpeg.asset.json";
+import fg6 from "@/assets/full-groom/fg-6.jpeg.asset.json";
+
 export interface ServiceDetail {
   slug: string;
   title: string;
@@ -6,7 +13,7 @@ export interface ServiceDetail {
   ideal: string;
   description: string[];
   includes: string[];
-  gallery: { label: string; tone: string }[];
+  gallery: { label: string; tone: string; src?: string }[];
 }
 
 export const services: ServiceDetail[] = [
@@ -31,10 +38,12 @@ export const services: ServiceDetail[] = [
       "Perfume y lazo o bandana de cortesía",
     ],
     gallery: [
-      { label: "Antes y después", tone: "blush" },
-      { label: "Corte de raza", tone: "muted" },
-      { label: "Acabado detallado", tone: "secondary" },
-      { label: "Feliz y limpio", tone: "blush" },
+      { label: "Antes y después", tone: "blush", src: fg1.url },
+      { label: "Corte de raza", tone: "muted", src: fg2.url },
+      { label: "Acabado detallado", tone: "secondary", src: fg3.url },
+      { label: "Feliz y limpio", tone: "blush", src: fg4.url },
+      { label: "Estilo poodle", tone: "muted", src: fg5.url },
+      { label: "Listo para casa", tone: "secondary", src: fg6.url },
     ],
   },
   {
