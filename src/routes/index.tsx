@@ -92,6 +92,34 @@ const services = [
     text: "Hospedaje supervisado en un espacio limpio, seguro y lleno de amigos nuevos.",
     tone: "dark",
   },
+  {
+    icon: "🦷",
+    slug: "nats",
+    title: "NATS — Dental",
+    text: "Limpieza dental suave sin anestesia para una sonrisa fresca y saludable.",
+    tone: "blush",
+  },
+  {
+    icon: "🫧",
+    slug: "bath",
+    title: "Bath",
+    text: "Baño profundo con productos profesionales, secado y cepillado completo.",
+    tone: "secondary",
+  },
+  {
+    icon: "💅",
+    slug: "unas",
+    title: "Uñas",
+    text: "Corte y limado de uñas con manejo gentil y pausas para perros nerviosos.",
+    tone: "muted",
+  },
+  {
+    icon: "🚐",
+    slug: "transportation",
+    title: "Transportation",
+    text: "Recogida y entrega a domicilio para grooming y boarding en West Miami.",
+    tone: "dark",
+  },
 ];
 
 const reviews = [
