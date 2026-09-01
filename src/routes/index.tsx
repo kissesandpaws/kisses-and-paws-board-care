@@ -93,6 +93,13 @@ const services = [
     tone: "dark",
   },
   {
+    icon: "☀️",
+    slug: "daycare",
+    title: "Daycare",
+    text: "Día de cuidado, juegos y socialización para tu perrito mientras tú trabajas.",
+    tone: "blush",
+  },
+  {
     icon: "🦷",
     slug: "nats",
     title: "NATS — Dental",

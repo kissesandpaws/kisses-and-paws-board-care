@@ -155,12 +155,24 @@ function ServicePage() {
                   key={g.label}
                   className="overflow-hidden rounded-3xl border border-border bg-card"
                 >
-                  <img
-                    src={g.src}
-                    alt={`${service.title} — ${g.label} en Kisses and Paws`}
-                    loading="lazy"
-                    className="aspect-square w-full object-cover"
-                  />
+                  {g.type === "video" ? (
+                    <video
+                      src={g.src}
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="aspect-square w-full object-cover"
+                      aria-label={`${service.title} — ${g.label} en Kisses and Paws`}
+                    />
+                  ) : (
+                    <img
+                      src={g.src}
+                      alt={`${service.title} — ${g.label} en Kisses and Paws`}
+                      loading="lazy"
+                      className="aspect-square w-full object-cover"
+                    />
+                  )}
                   <figcaption className="px-4 py-3 font-display text-base text-crimson">
                     {g.label}
                   </figcaption>
