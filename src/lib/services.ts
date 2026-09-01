@@ -148,10 +148,9 @@ export const services: ServiceDetail[] = [
       "Recomendaciones de cuidado dental en casa",
     ],
     gallery: [
-      { label: "Sonrisa limpia", tone: "blush" },
-      { label: "Cuidado dental suave", tone: "muted" },
-      { label: "Aliento fresco", tone: "secondary" },
-      { label: "Revisión completa", tone: "blush" },
+      { label: "Antes y después", tone: "blush", src: nats1.url },
+      { label: "Sarro removido", tone: "muted", src: nats2.url },
+      { label: "Dientes limpios", tone: "secondary", src: nats3.url },
     ],
   },
   {
