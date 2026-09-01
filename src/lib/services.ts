@@ -1,3 +1,5 @@
+import daycare1 from "@/assets/daycare/daycare-1.mp4.asset.json";
+import daycare2 from "@/assets/daycare/daycare-2.mp4.asset.json";
 import fg1 from "@/assets/full-groom/fg-1.jpeg.asset.json";
 import fg2 from "@/assets/full-groom/fg-2.jpeg.asset.json";
 import fg3 from "@/assets/full-groom/fg-3.jpeg.asset.json";
@@ -16,7 +18,7 @@ export interface ServiceDetail {
   ideal: string;
   description: string[];
   includes: string[];
-  gallery: { label: string; tone: string; src?: string }[];
+  gallery: { label: string; tone: string; src?: string; type?: "image" | "video" }[];
 }
 
 export const services: ServiceDetail[] = [
