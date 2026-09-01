@@ -104,7 +104,7 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "board-care",
-    title: "Board & Care",
+    title: "Boarding",
     tagline: "Hospedaje supervisado, limpio y lleno de amigos.",
     duration: "Estancias por noche o por días",
     ideal: "Razas pequeñas que necesitan cuidado mientras viajas.",

@@ -88,7 +88,7 @@ const services = [
   {
     icon: "🌙",
     slug: "board-care",
-    title: "Board & Care",
+    title: "Boarding",
     text: "Hospedaje supervisado en un espacio limpio, seguro y lleno de amigos nuevos.",
     tone: "dark",
   },
@@ -158,7 +158,7 @@ function Index() {
             />
             <div className="leading-tight">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
-                Board &amp; Care
+                Boarding
               </p>
               <p className="max-w-[280px] text-xs leading-snug text-muted-foreground">
                 West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
