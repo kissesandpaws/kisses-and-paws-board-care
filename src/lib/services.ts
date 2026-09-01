@@ -131,6 +131,33 @@ export const services: ServiceDetail[] = [
     ],
   },
   {
+    slug: "daycare",
+    title: "Daycare",
+    tagline: "Un día de diversión, amigos y supervisión constante.",
+    duration: "Medio día o día completo",
+    ideal: "Perros sociables que disfrutan jugar y convivir en un ambiente seguro.",
+    description: [
+      "Nuestro Daycare es el lugar perfecto para que tu perrito pase un día divertido, activo y lleno de compañía mientras tú trabajas o te ocupas de tus pendientes. En un espacio limpio, climatizado y diseñado para la socialización canina, tu mascota juega, explora y descansa bajo supervisión constante.",
+      "Mantenemos grupos pequeños y compatibles para que cada perro se sienta cómodo y seguro. El ambiente está lleno de juguetes, áreas de juego suaves y detalles pensados para estimularlos y mantenerlos felices durante su estadía.",
+      "Ya sea por medio día o por jornada completa, tu perrito vuelve a casa cansado, contento y bien cuidado. Te mantenemos informado con actualizaciones y fotos para que sepas lo bien que la está pasando.",
+    ],
+    includes: [
+      "Espacio de juego limpio, seguro y climatizado",
+      "Supervisión constante durante todo el día",
+      "Socialización en grupos pequeños y compatibles",
+      "Juguetes y áreas de estimulación",
+      "Pausas de descanso según la energía de cada perro",
+      "Actualizaciones con fotos durante la estadía",
+      "Opción de combinar con grooming o boarding",
+    ],
+    gallery: [
+      { label: "Diversión en grupo", tone: "blush", src: daycare1.url, type: "video" },
+      { label: "Juegos y amigos", tone: "secondary", src: daycare2.url, type: "video" },
+      { label: "Ambiente acogedor", tone: "muted" },
+      { label: "Supervisión cercana", tone: "blush" },
+    ],
+  },
+  {
     slug: "nats",
     title: "NATS — Servicio Dental",
     tagline: "Sonrisa fresca y salud bucal para tu perrito.",
