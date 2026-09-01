@@ -4,6 +4,9 @@ import fg3 from "@/assets/full-groom/fg-3.jpeg.asset.json";
 import fg4 from "@/assets/full-groom/fg-4.jpeg.asset.json";
 import fg5 from "@/assets/full-groom/fg-5.jpeg.asset.json";
 import fg6 from "@/assets/full-groom/fg-6.jpeg.asset.json";
+import nats1 from "@/assets/nats/nats-1.jpeg.asset.json";
+import nats2 from "@/assets/nats/nats-2.jpeg.asset.json";
+import nats3 from "@/assets/nats/nats-3.jpeg.asset.json";
 
 export interface ServiceDetail {
   slug: string;
@@ -145,10 +148,9 @@ export const services: ServiceDetail[] = [
       "Recomendaciones de cuidado dental en casa",
     ],
     gallery: [
-      { label: "Sonrisa limpia", tone: "blush" },
-      { label: "Cuidado dental suave", tone: "muted" },
-      { label: "Aliento fresco", tone: "secondary" },
-      { label: "Revisión completa", tone: "blush" },
+      { label: "Antes y después", tone: "blush", src: nats1.url },
+      { label: "Sarro removido", tone: "muted", src: nats2.url },
+      { label: "Dientes limpios", tone: "secondary", src: nats3.url },
     ],
   },
   {
