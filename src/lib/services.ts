@@ -1,5 +1,7 @@
 import daycare1 from "@/assets/daycare/daycare-1.mp4.asset.json";
 import daycare2 from "@/assets/daycare/daycare-2.mp4.asset.json";
+import daycare3 from "@/assets/daycare/daycare-3.jpg.asset.json";
+import daycare4 from "@/assets/daycare/daycare-4.jpg.asset.json";
 import fg1 from "@/assets/full-groom/fg-1.jpeg.asset.json";
 import fg2 from "@/assets/full-groom/fg-2.jpeg.asset.json";
 import fg3 from "@/assets/full-groom/fg-3.jpeg.asset.json";
