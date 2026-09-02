@@ -9,6 +9,7 @@ import fg6 from "@/assets/full-groom/fg-6.jpeg.asset.json";
 import nats1 from "@/assets/nats/nats-1.jpeg.asset.json";
 import nats2 from "@/assets/nats/nats-2.jpeg.asset.json";
 import nats3 from "@/assets/nats/nats-3.jpeg.asset.json";
+import nats4 from "@/assets/nats/nats-4.jpg.asset.json";
 
 export interface ServiceDetail {
   slug: string;
