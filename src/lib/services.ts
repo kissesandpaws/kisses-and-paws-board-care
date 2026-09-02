@@ -159,8 +159,8 @@ export const services: ServiceDetail[] = [
     gallery: [
       { label: "Diversión en grupo", tone: "blush", src: daycare1.url, type: "video" },
       { label: "Juegos y amigos", tone: "secondary", src: daycare2.url, type: "video" },
-      { label: "Ambiente acogedor", tone: "muted" },
-      { label: "Supervisión cercana", tone: "blush" },
+      { label: "Ambiente acogedor", tone: "muted", src: daycare3.url },
+      { label: "Supervisión cercana", tone: "blush", src: daycare4.url },
     ],
   },
   {
