@@ -9,6 +9,7 @@ import fg6 from "@/assets/full-groom/fg-6.jpeg.asset.json";
 import nats1 from "@/assets/nats/nats-1.jpeg.asset.json";
 import nats2 from "@/assets/nats/nats-2.jpeg.asset.json";
 import nats3 from "@/assets/nats/nats-3.jpeg.asset.json";
+import unas1 from "@/assets/unas/unas-1.jpg.asset.json";
 
 export interface ServiceDetail {
   slug: string;
@@ -228,7 +229,7 @@ export const services: ServiceDetail[] = [
       "Consejos de frecuencia según actividad y raza",
     ],
     gallery: [
-      { label: "Uñas cuidadas", tone: "blush" },
+      { label: "Antes y después", tone: "blush", src: unas1.url },
       { label: "Corte seguro", tone: "muted" },
       { label: "Patas limpias", tone: "secondary" },
       { label: "Manejo gentil", tone: "blush" },
