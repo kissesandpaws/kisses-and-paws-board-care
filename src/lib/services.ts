@@ -229,7 +229,7 @@ export const services: ServiceDetail[] = [
       "Consejos de frecuencia según actividad y raza",
     ],
     gallery: [
-      { label: "Uñas cuidadas", tone: "blush" },
+      { label: "Antes y después", tone: "blush", src: unas1.url },
       { label: "Corte seguro", tone: "muted" },
       { label: "Patas limpias", tone: "secondary" },
       { label: "Manejo gentil", tone: "blush" },
