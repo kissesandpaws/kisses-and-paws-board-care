@@ -9,6 +9,9 @@ import fg6 from "@/assets/full-groom/fg-6.jpeg.asset.json";
 import nats1 from "@/assets/nats/nats-1.jpeg.asset.json";
 import nats2 from "@/assets/nats/nats-2.jpeg.asset.json";
 import nats3 from "@/assets/nats/nats-3.jpeg.asset.json";
+import transport1 from "@/assets/transportation/transport-1.jpg.asset.json";
+import transport2 from "@/assets/transportation/transport-2.jpg.asset.json";
+import transport3 from "@/assets/transportation/transport-3.jpg.asset.json";
 import unas1 from "@/assets/unas/unas-1.jpg.asset.json";
 
 export interface ServiceDetail {
@@ -255,9 +258,9 @@ export const services: ServiceDetail[] = [
       "Combinable con grooming o boarding",
     ],
     gallery: [
-      { label: "Recogida a domicilio", tone: "muted" },
-      { label: "Viaje cómodo", tone: "blush" },
-      { label: "Entrega segura", tone: "secondary" },
+      { label: "Nuestro vehículo de transporte", tone: "muted", src: transport1.url },
+      { label: "Recogida a domicilio", tone: "blush", src: transport2.url },
+      { label: "Entrega segura", tone: "secondary", src: transport3.url },
       { label: "Rutas locales", tone: "muted" },
     ],
   },
