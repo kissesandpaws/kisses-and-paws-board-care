@@ -364,7 +364,7 @@ function Index() {
         <section id="visitanos" className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid items-stretch gap-6 md:grid-cols-2">
             <div className="flex flex-col justify-between rounded-[2rem] bg-ink p-8 text-background">
-              <div>
+              <div className="pt-6">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-rose">
                   Visita el estudio
                 </p>
