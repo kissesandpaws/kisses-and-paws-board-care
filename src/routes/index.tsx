@@ -254,20 +254,6 @@ function Index() {
                   height={1280}
                   className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[var(--shadow-soft)]"
                 />
-                <div className="absolute -bottom-6 -left-4 max-w-[240px] rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-soft)] md:-left-8">
-                  <div className="mb-2 flex items-center gap-2">
-                    <div className="grid size-8 place-items-center rounded-full bg-blush font-display text-sm text-crimson">
-                      C
-                    </div>
-                    <div className="leading-tight">
-                      <p className="text-xs font-bold">Candela_ Miami</p>
-                      <p className="text-[11px] font-semibold text-rose">★★★★★ · 2 meses</p>
-                    </div>
-                  </div>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    “Trataron a mi bebé con muchísimo cariño. Superó mis expectativas.”
-                  </p>
-                </div>
                 <div className="absolute -right-3 top-6 rotate-3 rounded-full bg-ink px-4 py-2 text-xs font-bold text-background">
                   Expertas en razas pequeñas
                 </div>
