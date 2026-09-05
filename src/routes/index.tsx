@@ -161,7 +161,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground antialiased">
       <header className="border-b border-border bg-background/85 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-end gap-3">
+          <div className="flex items-center gap-3 translate-y-1.5">
             <img
               src={logoAsset.url}
               alt="Logo de Kisses and Paws Board and Care"
