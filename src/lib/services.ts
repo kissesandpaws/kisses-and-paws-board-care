@@ -1,3 +1,5 @@
+import bathTidy1 from "@/assets/bath-tidy/bath-tidy-1.mp4.asset.json";
+import bathTidy2 from "@/assets/bath-tidy/bath-tidy-2.mp4.asset.json";
 import daycare1 from "@/assets/daycare/daycare-1.mp4.asset.json";
 import daycare2 from "@/assets/daycare/daycare-2.mp4.asset.json";
 import daycare3 from "@/assets/daycare/daycare-3.jpg.asset.json";
@@ -104,8 +106,8 @@ export const services: ServiceDetail[] = [
       "Perfume de cortesía",
     ],
     gallery: [
-      { label: "Baño refrescante", tone: "secondary" },
-      { label: "Retoque de cara", tone: "blush" },
+      { label: "Baño refrescante", tone: "secondary", src: bathTidy1.url, type: "video" },
+      { label: "Retoque de cara", tone: "blush", src: bathTidy2.url, type: "video" },
       { label: "Uñas perfectas", tone: "muted" },
       { label: "Fresco y feliz", tone: "secondary" },
     ],
