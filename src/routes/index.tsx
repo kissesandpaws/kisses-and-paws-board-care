@@ -52,6 +52,12 @@ export const Route = createFileRoute("/")({
             postalCode: "33144",
             addressCountry: "US",
           },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "09:30",
+            closes: "17:00",
+          },
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5",
@@ -237,7 +243,7 @@ function Index() {
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <span className="size-2 rounded-full bg-rose" />
                   <span>
-                    <span className="font-bold text-foreground">Abre 9:30</span> · hoy
+                    <span className="font-bold text-foreground">Lunes a sábado</span> · 9:30 - 17:00
                   </span>
                 </div>
                 <div className="hidden h-4 w-px bg-border sm:block" />
@@ -384,7 +390,7 @@ function Index() {
                   </a>
                 </p>
                 <p className="flex items-start gap-3">
-                  <span className="mt-0.5 text-rose">◆</span>Abre a las 9:30 · West Miami
+                  <span className="mt-0.5 text-rose">◆</span>Lunes a sábado · 9:30 - 17:00
                 </p>
               </address>
               <div className="mt-8 flex flex-wrap gap-3">
