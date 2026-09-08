@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kisses and Paws Board and Care — Grooming en West Miami" },
+      { title: "Dog Grooming in West Miami, FL | Kisses and Paws Board and Care" },
       {
         name: "description",
         content:
-          "Boutique de grooming y hospedaje canino en West Miami. Especialistas en razas pequeñas y cachorros.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, stress-free small breed specialists. Rated 5.0 on Google.",
       },
       { property: "og:site_name", content: "Kisses and Paws Board and Care" },
       { property: "og:type", content: "website" },

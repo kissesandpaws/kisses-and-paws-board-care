@@ -5,7 +5,7 @@ import logoAsset from "@/assets/logo.png.asset.json";
 const PHONE_DISPLAY = "+1 786-670-0164";
 const WHATSAPP_BASE = "https://wa.me/17866700164?text=";
 
-export const Route = createFileRoute("/servicios/$slug")({
+export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = getService(params.slug);
     if (!service) throw notFound();
@@ -15,13 +15,14 @@ export const Route = createFileRoute("/servicios/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Servicio no encontrado — Kisses and Paws" },
+          { title: "Service not found — Kisses and Paws" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
-    const title = `${loaderData.service.title} — Kisses and Paws Board and Care`;
-    const description = loaderData.service.description[0]!.slice(0, 155);
+    const { service } = loaderData;
+    const title = service.metaTitle ?? `${service.title} — Kisses and Paws Board and Care`;
+    const description = service.metaDescription ?? service.description[0]!.slice(0, 155);
     return {
       meta: [
         { title },
@@ -31,7 +32,38 @@ export const Route = createFileRoute("/servicios/$slug")({
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary" },
       ],
-      links: [{ rel: "canonical", href: `/servicios/${loaderData.service.slug}` }],
+      links: [{ rel: "canonical", href: `/services/${service.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            description: service.description[0],
+            serviceType: service.title,
+            areaServed: [
+              { "@type": "City", name: "West Miami" },
+              { "@type": "City", name: "Coral Gables" },
+              { "@type": "City", name: "Doral" },
+              { "@type": "Place", name: "Flagami" },
+            ],
+            provider: {
+              "@type": "PetStore",
+              name: "Kisses and Paws Board and Care",
+              telephone: PHONE_DISPLAY,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "5760 SW 8th St Suite 300",
+                addressLocality: "Miami",
+                addressRegion: "FL",
+                postalCode: "33144",
+                addressCountry: "US",
+              },
+            },
+          }),
+        },
+      ],
     };
   },
   component: ServicePage,
@@ -41,7 +73,7 @@ export const Route = createFileRoute("/servicios/$slug")({
 function ServicePage() {
   const { service } = Route.useLoaderData();
   const whatsapp = `${WHATSAPP_BASE}${encodeURIComponent(
-    `Hola, quiero reservar el servicio ${service.title} para mi perrito. ¿Me ayudan con una cita?`
+    `Hi! I'd like to book the ${service.title} service for my dog. Can you help me set up an appointment?`
   )}`;
   const others = services.filter((s) => s.slug !== service.slug);
 
@@ -52,7 +84,7 @@ function ServicePage() {
           <Link to="/" className="flex items-center gap-3">
             <img
               src={logoAsset.url}
-              alt="Logo de Kisses and Paws Board and Care"
+              alt="Kisses and Paws Board and Care logo"
               width={822}
               height={661}
               className="h-16 w-auto"
@@ -74,10 +106,10 @@ function ServicePage() {
       <main className="mx-auto max-w-6xl px-6">
         <nav className="py-6 text-sm text-muted-foreground">
           <Link to="/" className="font-semibold text-primary hover:text-crimson">
-            Inicio
+            Home
           </Link>
           <span className="mx-2 text-ash">/</span>
-          <span>Servicios</span>
+          <span>Services</span>
           <span className="mx-2 text-ash">/</span>
           <span className="font-semibold text-foreground">{service.title}</span>
         </nav>
@@ -86,7 +118,7 @@ function ServicePage() {
           <div className="grid items-start gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Servicio
+                Service
               </p>
               <h1 className="font-display text-4xl leading-tight md:text-5xl">{service.title}</h1>
               <p className="mt-3 font-display text-xl italic text-rose">{service.tagline}</p>
@@ -102,29 +134,29 @@ function ServicePage() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  Reservar {service.title}
+                  Book {service.title}
                 </a>
                 <Link
                   to="/"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-bold transition-colors hover:border-primary hover:text-primary"
                 >
-                  ← Volver al inicio
+                  ← Back to home
                 </Link>
               </div>
             </div>
 
             <aside className="space-y-5 md:col-span-5">
               <div className="rounded-3xl bg-ink p-6 text-background">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose">Duración</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose">Duration</p>
                 <p className="mt-1 font-display text-2xl">{service.duration}</p>
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-rose">
-                  Ideal para
+                  Ideal for
                 </p>
                 <p className="mt-1 text-sm text-background/80">{service.ideal}</p>
               </div>
               <div className="rounded-3xl border border-border bg-card p-6">
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  Qué incluye
+                  What is included
                 </p>
                 <ul className="space-y-2.5">
                   {service.includes.map((item) => (
@@ -143,9 +175,9 @@ function ServicePage() {
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Galería
+                Gallery
               </p>
-              <h2 className="font-display text-3xl">Momentos de {service.title}</h2>
+              <h2 className="font-display text-3xl">{service.title} moments</h2>
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -163,12 +195,12 @@ function ServicePage() {
                       playsInline
                       preload="metadata"
                       className="aspect-square w-full object-cover"
-                      aria-label={`${service.title} — ${g.label} en Kisses and Paws`}
+                      aria-label={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
                     />
                   ) : (
                     <img
                       src={g.src}
-                      alt={`${service.title} — ${g.label} en Kisses and Paws`}
+                      alt={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
                       loading="lazy"
                       className="aspect-square w-full object-cover"
                     />
@@ -192,7 +224,7 @@ function ServicePage() {
                     🐾
                   </span>
                   <p className="font-display text-lg text-crimson">{g.label}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">Foto próximamente</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Photo coming soon</p>
                 </div>
               )
             )}
@@ -200,18 +232,18 @@ function ServicePage() {
         </section>
 
         <section className="border-t border-border py-14">
-          <h2 className="mb-6 font-display text-2xl">Otros servicios</h2>
+          <h2 className="mb-6 font-display text-2xl">Other services</h2>
           <div className="grid gap-4 sm:grid-cols-3">
             {others.map((s) => (
               <Link
                 key={s.slug}
-                to="/servicios/$slug"
+                to="/services/$slug"
                 params={{ slug: s.slug }}
                 className="group rounded-3xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
               >
                 <h3 className="font-display text-lg group-hover:text-primary">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.tagline}</p>
-                <p className="mt-4 text-sm font-bold text-primary">Ver servicio →</p>
+                <p className="mt-4 text-sm font-bold text-primary">View service →</p>
               </Link>
             ))}
           </div>
@@ -232,7 +264,10 @@ function ServicePage() {
               Board &amp; Care
             </p>
           </div>
-          <p>© 2026 · West Miami, Florida · Hecho con amor para perritos</p>
+          <p className="text-center sm:text-right">
+            Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
+            <br />© 2026 · West Miami, Florida · Made with love for dogs
+          </p>
         </div>
       </footer>
     </div>
@@ -243,13 +278,15 @@ function ServiceNotFound() {
   return (
     <div className="grid min-h-screen place-items-center bg-background px-6 text-center text-foreground">
       <div>
-        <h1 className="font-display text-4xl">Servicio no encontrado</h1>
-        <p className="mt-3 text-muted-foreground">Este servicio no existe o fue movido.</p>
+        <h1 className="font-display text-4xl">Service not found</h1>
+        <p className="mt-3 text-muted-foreground">
+          This service does not exist or has been moved.
+        </p>
         <Link
           to="/"
           className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground hover:bg-crimson"
         >
-          Volver al inicio
+          Back to home
         </Link>
       </div>
     </div>

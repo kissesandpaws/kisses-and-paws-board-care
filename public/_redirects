@@ -1,0 +1,18 @@
+# Redirecciones 301 desde las URLs del sitio Wix anterior.
+# Objetivo: no perder el posicionamiento local ya ganado en Google.
+
+# Paginas de servicio con keyword local -> pagina de servicio equivalente
+/dog-grooming-west-miami      /services/full-groom    301
+/dog-boarding-west-miami      /services/board-care    301
+/dog-teeth-cleaning-miami     /services/nats          301
+
+# Paginas informativas -> seccion correspondiente de la portada
+/services                     /#services              301
+/about                        /                       301
+/mission                      /                       301
+/contact                      /#visit                 301
+/whatsapp                     /#visit                 301
+
+# Rutas en espanol de la version anterior del sitio nuevo
+/servicios/unas               /services/nails         301
+/servicios/*                  /services/:splat        301
