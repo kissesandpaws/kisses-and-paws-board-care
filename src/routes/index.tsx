@@ -1,16 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { SocialLinks } from "@/components/social-links";
+import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
 import heroSalonDogAsset from "@/assets/hero-salon-dog.jpeg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
-const PHONE = "+17866700164";
-const PHONE_DISPLAY = "+1 786-670-0164";
-const WHATSAPP_MESSAGE = encodeURIComponent(
+const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
   "Hi! I'd like to book grooming and boarding for my dog. Can you help me set up an appointment?"
-);
-const WHATSAPP = `https://wa.me/17866700164?text=${WHATSAPP_MESSAGE}`;
-// Reserva online. /reservar se redirige a la app de reservas desde public/_redirects,
-// asi el enlace sigue funcionando cuando el dominio deje de apuntar a Wix.
-const BOOKING = "/reservar";
+)}`;
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
 const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
@@ -263,9 +259,7 @@ function Index() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={BOOKING}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
                   Book grooming &amp; boarding
@@ -438,12 +432,18 @@ function Index() {
               </address>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
+                  href={BOOKING}
+                  className="inline-flex items-center rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-colors hover:bg-crimson"
+                >
+                  Book Now
+                </a>
+                <a
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-colors hover:bg-crimson"
+                  className="inline-flex items-center rounded-full border border-background/30 px-6 py-3 font-bold transition-colors hover:border-rose hover:text-rose"
                 >
-                  Book on WhatsApp
+                  WhatsApp
                 </a>
                 <a
                   href={MAPS}
@@ -511,6 +511,7 @@ function Index() {
               Board &amp; Care
             </p>
           </div>
+          <SocialLinks />
           <p className="text-center sm:text-right">
             Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
             <br />© 2026 · West Miami, Florida · Made with love for dogs

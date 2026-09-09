@@ -1,9 +1,8 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { getService, services } from "@/lib/services";
+import { SocialLinks } from "@/components/social-links";
+import { BOOKING, PHONE_DISPLAY } from "@/lib/site";
 import logoAsset from "@/assets/logo.png.asset.json";
-
-const PHONE_DISPLAY = "+1 786-670-0164";
-const WHATSAPP_BASE = "https://wa.me/17866700164?text=";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -72,9 +71,6 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const { service } = Route.useLoaderData();
-  const whatsapp = `${WHATSAPP_BASE}${encodeURIComponent(
-    `Hi! I'd like to book the ${service.title} service for my dog. Can you help me set up an appointment?`
-  )}`;
   const others = services.filter((s) => s.slug !== service.slug);
 
   return (
@@ -93,13 +89,22 @@ function ServicePage() {
               Board &amp; Care
             </p>
           </Link>
-          <a
-            href={`tel:+17866700164`}
-            className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
-          >
-            <span className="size-2 rounded-full bg-rose" />
-            {PHONE_DISPLAY}
-          </a>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={BOOKING}
+              className="inline-flex items-center rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5"
+            >
+              Book Now
+            </a>
+            <a
+              href={`tel:+17866700164`}
+              aria-label={`Call Kisses and Paws at ${PHONE_DISPLAY}`}
+              className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
+            >
+              <span className="size-2 rounded-full bg-rose" />
+              {PHONE_DISPLAY}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -129,9 +134,7 @@ function ServicePage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href={whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={BOOKING}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
                   Book {service.title}
@@ -204,9 +207,7 @@ function ServicePage() {
                       src={g.src}
                       alt={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
                       loading="lazy"
-                      className={`w-full object-cover ${
-                        g.wide ? "aspect-[21/9]" : "aspect-square"
-                      }`}
+                      className={g.wide ? "w-full" : "aspect-square w-full object-cover"}
                     />
                   )}
                   <figcaption className="px-4 py-3 font-display text-base text-crimson">
@@ -268,6 +269,7 @@ function ServicePage() {
               Board &amp; Care
             </p>
           </div>
+          <SocialLinks />
           <p className="text-center sm:text-right">
             Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
             <br />© 2026 · West Miami, Florida · Made with love for dogs

@@ -28,8 +28,8 @@ export interface ServiceDetail {
   metaDescription: string;
   description: string[];
   includes: string[];
-  // wide: para fotos panoramicas. Ocupan toda la fila y conservan su encuadre
-  // en vez de recortarse a cuadrado.
+  // wide: para fotos apaisadas (antes/despues, panoramicas). Ocupan toda la fila
+  // y conservan su proporcion original en vez de recortarse a cuadrado.
   gallery: {
     label: string;
     tone: string;
@@ -280,10 +280,18 @@ export const services: ServiceDetail[] = [
       "Advice on frequency by activity and breed",
     ],
     gallery: [
-      { label: "Before and after", tone: "blush", src: unas1.url },
-      { label: "A safe trim", tone: "muted" },
-      { label: "Clean paws", tone: "secondary" },
-      { label: "Gentle handling", tone: "blush" },
+      {
+        label: "Before and after",
+        tone: "blush",
+        src: "/media/nails/nails-before-after.jpeg",
+        wide: true,
+      },
+      {
+        label: "Overgrown nails, trimmed short",
+        tone: "muted",
+        src: "/media/nails/nails-paw-before-after.jpeg",
+      },
+      { label: "Clean paws", tone: "secondary", src: unas1.url },
     ],
   },
   {
