@@ -233,10 +233,11 @@ export const services: ServiceDetail[] = [
       "Complimentary cologne",
     ],
     gallery: [
-      { label: "A relaxing bath", tone: "secondary" },
-      { label: "Gentle drying", tone: "blush" },
-      { label: "Shiny coat", tone: "muted" },
-      { label: "Ready to go home", tone: "secondary" },
+      { label: "A relaxing bath", tone: "secondary", src: "/media/bath/bath-rinse.jpeg" },
+      { label: "Gentle drying", tone: "blush", src: "/media/bath/bath-drying.jpeg" },
+      // Mismo archivo que la galeria de Bath & Tidy: se reutiliza en vez de duplicarlo.
+      { label: "Fresh and clean", tone: "muted", src: bathTidy2.url, type: "video" },
+      { label: "Ready to go home", tone: "secondary", src: "/media/bath/bath-finished.jpeg" },
     ],
   },
   {

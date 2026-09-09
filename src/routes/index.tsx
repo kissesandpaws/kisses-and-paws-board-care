@@ -8,6 +8,9 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi! I'd like to book grooming and boarding for my dog. Can you help me set up an appointment?"
 );
 const WHATSAPP = `https://wa.me/17866700164?text=${WHATSAPP_MESSAGE}`;
+// Reserva online. /reservar se redirige a la app de reservas desde public/_redirects,
+// asi el enlace sigue funcionando cuando el dominio deje de apuntar a Wix.
+const BOOKING = "/reservar";
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
 const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
@@ -200,7 +203,7 @@ function Index() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
                 Boarding
               </p>
-              <p className="max-w-[280px] text-xs leading-snug text-muted-foreground">
+              <p className="hidden max-w-[280px] text-xs leading-snug text-muted-foreground sm:block">
                 West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
                 33144
               </p>
@@ -217,13 +220,22 @@ function Index() {
               Visit us
             </a>
           </nav>
-          <a
-            href={`tel:${PHONE}`}
-            className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
-          >
-            <span className="size-2 rounded-full bg-rose" />
-            Call us
-          </a>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={BOOKING}
+              className="inline-flex items-center rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5"
+            >
+              Book Now
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              aria-label={`Call Kisses and Paws at ${PHONE_DISPLAY}`}
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:px-5"
+            >
+              <span className="size-2 rounded-full bg-rose" />
+              Call us
+            </a>
+          </div>
         </div>
       </header>
 
