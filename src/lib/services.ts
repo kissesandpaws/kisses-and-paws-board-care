@@ -28,7 +28,15 @@ export interface ServiceDetail {
   metaDescription: string;
   description: string[];
   includes: string[];
-  gallery: { label: string; tone: string; src?: string; type?: "image" | "video" }[];
+  // wide: para fotos panoramicas. Ocupan toda la fila y conservan su encuadre
+  // en vez de recortarse a cuadrado.
+  gallery: {
+    label: string;
+    tone: string;
+    src?: string;
+    type?: "image" | "video";
+    wide?: boolean;
+  }[];
 }
 
 export const services: ServiceDetail[] = [
@@ -146,10 +154,19 @@ export const services: ServiceDetail[] = [
       "Optional grooming before pickup",
     ],
     gallery: [
-      { label: "Play area", tone: "blush" },
-      { label: "Comfortable rest", tone: "muted" },
-      { label: "New friends", tone: "secondary" },
-      { label: "Constant supervision", tone: "blush" },
+      {
+        label: "Couch time with friends",
+        tone: "blush",
+        src: "/media/boarding/boarding-living-room.jpeg",
+        wide: true,
+      },
+      {
+        label: "Bedtime, all tucked in",
+        tone: "muted",
+        src: "/media/boarding/boarding-bedroom.jpeg",
+      },
+      { label: "Room to run", tone: "secondary", src: "/media/boarding/boarding-yard.jpeg" },
+      { label: "Our shaded backyard", tone: "blush", src: "/media/boarding/boarding-patio.jpeg" },
     ],
   },
   {

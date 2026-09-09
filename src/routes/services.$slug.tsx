@@ -185,7 +185,9 @@ function ServicePage() {
               g.src ? (
                 <figure
                   key={g.label}
-                  className="overflow-hidden rounded-3xl border border-border bg-card"
+                  className={`overflow-hidden rounded-3xl border border-border bg-card ${
+                    g.wide ? "sm:col-span-2 lg:col-span-3" : ""
+                  }`}
                 >
                   {g.type === "video" ? (
                     <video
@@ -202,7 +204,9 @@ function ServicePage() {
                       src={g.src}
                       alt={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
                       loading="lazy"
-                      className="aspect-square w-full object-cover"
+                      className={`w-full object-cover ${
+                        g.wide ? "aspect-[21/9]" : "aspect-square"
+                      }`}
                     />
                   )}
                   <figcaption className="px-4 py-3 font-display text-base text-crimson">
