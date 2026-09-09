@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { SocialLinks } from "@/components/social-links";
+import { StudioCarousel } from "@/components/studio-carousel";
 import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
 import heroSalonDogAsset from "@/assets/hero-salon-dog.jpeg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -316,6 +317,8 @@ function Index() {
             <span>Small breeds</span>
           </div>
         </div>
+
+        <StudioCarousel />
 
         <section id="services" className="mx-auto max-w-6xl px-6 py-16">
           <div className="mb-8 flex items-end justify-between gap-4">
