@@ -514,6 +514,14 @@ function Index() {
               Board &amp; Care
             </p>
           </div>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="font-semibold hover:text-primary">
+              Privacy Policy
+            </Link>
+            <Link to="/sms-terms" className="font-semibold hover:text-primary">
+              SMS Terms
+            </Link>
+          </div>
           <SocialLinks />
           <p className="text-center sm:text-right">
             Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
