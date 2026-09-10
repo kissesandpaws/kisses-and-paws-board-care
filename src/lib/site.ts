@@ -10,11 +10,11 @@ export const BOOKING = "/reservar";
 
 export const WHATSAPP_BASE = "https://wa.me/17866700164?text=";
 
-// PENDIENTE: sustituir por las direcciones reales de las cuentas.
-// Mientras esten apuntando a la pagina principal de cada red, los iconos se ven
-// y no dan error, pero no llevan al perfil del negocio.
+// Cuentas del negocio. Las direcciones van limpias a proposito: los enlaces
+// originales traian parametros de sesion y de seguimiento que no deben quedar
+// publicados en la web.
 export const SOCIAL = {
-  instagram: "https://www.instagram.com/",
-  tiktok: "https://www.tiktok.com/",
-  facebook: "https://www.facebook.com/",
+  instagram: "https://www.instagram.com/kissesandpawspetcare",
+  tiktok: "https://www.tiktok.com/@kissesandpawspetcare",
+  facebook: "https://www.facebook.com/share/1E7ihWuj8M/",
 };
