@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { SocialLinks } from "@/components/social-links";
 import { StudioCarousel } from "@/components/studio-carousel";
+import { TeamSection } from "@/components/team-section";
 import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, stress-free small breed specialists. Rated 5.0 on Google with 132 reviews.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 132 reviews.",
       },
       {
         property: "og:title",
@@ -28,7 +29,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL. Small breeds, puppies, bath and haircut. Rated 5.0 on Google.",
+          "Boutique dog grooming and pet care in West Miami, FL. Grooming, boarding, daycare and dental. Rated 5.0 on Google.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -43,7 +44,7 @@ export const Route = createFileRoute("/")({
           "@type": "PetStore",
           name: "Kisses and Paws Board and Care",
           description:
-            "Boutique dog grooming and boarding studio in West Miami, FL. Small breed specialists offering cage-free, stress-free grooming, puppy grooming, boarding, daycare and anesthesia-free dental cleaning.",
+            "Boutique dog grooming and boarding studio in West Miami, FL. Especially experienced with small breeds, offering cage-free grooming, puppy grooming, boarding, daycare and anesthesia-free dental cleaning.",
           telephone: PHONE_DISPLAY,
           priceRange: "$$",
           address: {
@@ -121,7 +122,7 @@ const services = [
     icon: "🌙",
     slug: "board-care",
     title: "Boarding",
-    text: "Supervised boarding in a clean, safe space full of new friends.",
+    text: "A home-style stay with a real routine, close supervision and new friends.",
     tone: "dark",
   },
   {
@@ -197,7 +198,7 @@ function Index() {
             />
             <div className="leading-tight">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
-                Boarding
+                Dog Grooming &amp; Pet Care
               </p>
               <p className="hidden max-w-[280px] text-xs leading-snug text-muted-foreground sm:block">
                 West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
@@ -211,6 +212,9 @@ function Index() {
             </a>
             <a href="#reviews" className="transition-colors hover:text-primary">
               Reviews
+            </a>
+            <a href="#team" className="transition-colors hover:text-primary">
+              Team
             </a>
             <a href="#visit" className="transition-colors hover:text-primary">
               Visit us
@@ -253,9 +257,9 @@ function Index() {
                 for the littlest ones.
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-                A boutique dog grooming and boarding studio in West Miami, FL 33144. Small breed
-                specialists — cage-free, stress-free and detail-obsessed, in a calm and spotless
-                space.
+                A boutique dog grooming and pet care studio in West Miami, FL 33144. Especially
+                experienced with small breeds, and every dog gets the same thing: cage-free,
+                unhurried, and fussed over from nose to tail.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
@@ -297,7 +301,7 @@ function Index() {
                   className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[var(--shadow-soft)]"
                 />
                 <div className="absolute -right-3 top-6 rotate-3 rounded-full bg-ink px-4 py-2 text-xs font-bold text-background">
-                  Small breed specialists
+                  Gentle with every breed
                 </div>
               </div>
             </div>
@@ -314,7 +318,7 @@ function Index() {
             <span className="text-rose">·</span>
             <span>Dog boarding</span>
             <span className="text-rose">·</span>
-            <span>Small breeds</span>
+            <span>All breeds welcome</span>
           </div>
         </div>
 
@@ -406,6 +410,8 @@ function Index() {
             </div>
           </div>
         </section>
+
+        <TeamSection />
 
         <section id="visit" className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid items-stretch gap-6 md:grid-cols-2">

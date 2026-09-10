@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, stress-free small breed specialists. Rated 5.0 on Google.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google.",
       },
       { property: "og:site_name", content: "Kisses and Paws Board and Care" },
       { property: "og:type", content: "website" },

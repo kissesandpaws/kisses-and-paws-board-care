@@ -137,7 +137,7 @@ function ServicePage() {
                   href={BOOKING}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  Book {service.title}
+                  {service.ctaLabel ?? `Book ${service.title}`}
                 </a>
                 <Link
                   to="/"
@@ -152,6 +152,11 @@ function ServicePage() {
               <div className="rounded-3xl bg-ink p-6 text-background">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose">Duration</p>
                 <p className="mt-1 font-display text-2xl">{service.duration}</p>
+                {service.durationNote ? (
+                  <p className="mt-1.5 text-xs leading-relaxed text-background/70">
+                    {service.durationNote}
+                  </p>
+                ) : null}
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-rose">
                   Ideal for
                 </p>
