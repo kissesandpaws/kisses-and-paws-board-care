@@ -4,11 +4,42 @@ import { useEffect, useRef, useState } from "react";
 // viven en public/media/studio/. Se muestran en horizontal y en tamano
 // contenido para no comerse la pantalla.
 const photos = [
-  { src: "/media/studio/studio-reception.jpeg", alt: "Reception area at Kisses and Paws Board and Care in West Miami" },
-  { src: "/media/studio/studio-grooming-room.jpeg", alt: "Grooming room with professional tables and bathing tub" },
-  { src: "/media/studio/studio-play-room.jpeg", alt: "Indoor play room with toys and comfortable seating" },
-  { src: "/media/studio/studio-playpen.jpeg", alt: "Puppy in a clean playpen with a bed and toys" },
-  { src: "/media/studio/studio-backyard.jpeg", alt: "Fenced backyard with shade and open grass for dogs to run" },
+  {
+    src: "/media/studio/daycare-group-turf.jpeg",
+    alt: "Group of small dogs wearing bandanas playing with balloons on the turf at daycare",
+  },
+  {
+    src: "/media/studio/daycare-playroom.jpeg",
+    alt: "Dogs playing in the indoor play room with a ball pit and cartoons on the TV",
+  },
+  {
+    src: "/media/studio/daycare-resting.jpeg",
+    alt: "Three dogs resting on the Kisses and Paws mat and soft play furniture",
+  },
+  {
+    src: "/media/studio/daycare-ball-pit.jpeg",
+    alt: "Dogs exploring the ball pit and toys in the play room",
+  },
+  {
+    src: "/media/studio/studio-reception.jpeg",
+    alt: "Reception area at Kisses and Paws Board and Care in West Miami",
+  },
+  {
+    src: "/media/studio/studio-grooming-room.jpeg",
+    alt: "Grooming room with professional tables and bathing tub",
+  },
+  {
+    src: "/media/studio/studio-play-room.jpeg",
+    alt: "Indoor play room with toys and comfortable seating",
+  },
+  {
+    src: "/media/studio/studio-playpen.jpeg",
+    alt: "Puppy in a clean playpen with a bed and toys",
+  },
+  {
+    src: "/media/studio/studio-backyard.jpeg",
+    alt: "Fenced backyard with shade and open grass for dogs to run",
+  },
 ];
 
 export function StudioCarousel() {
