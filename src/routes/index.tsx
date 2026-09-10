@@ -2,7 +2,6 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { SocialLinks } from "@/components/social-links";
 import { StudioCarousel } from "@/components/studio-carousel";
 import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
-import heroSalonDogAsset from "@/assets/hero-salon-dog.jpeg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
@@ -290,10 +289,11 @@ function Index() {
             <div className="md:col-span-6">
               <div className="relative">
                 <img
-                  src={heroSalonDogAsset.url}
-                  alt="Happy dog after grooming at the Kisses and Paws salon in West Miami, with a pink neon sign"
-                  width={1024}
-                  height={1280}
+                  src="/media/hero/hero-dog-neon.jpeg"
+                  alt="Freshly groomed goldendoodle sitting on a velvet bench under the neon sign at the Kisses and Paws studio in West Miami"
+                  width={1086}
+                  height={1448}
+                  fetchPriority="high"
                   className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[var(--shadow-soft)]"
                 />
                 <div className="absolute -right-3 top-6 rotate-3 rounded-full bg-ink px-4 py-2 text-xs font-bold text-background">

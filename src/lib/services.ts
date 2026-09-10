@@ -96,10 +96,11 @@ export const services: ServiceDetail[] = [
       "At-home care guidance for new puppy parents",
     ],
     gallery: [
-      { label: "First visit", tone: "muted" },
-      { label: "A calm bath", tone: "blush" },
-      { label: "Treats and cuddles", tone: "secondary" },
-      { label: "Ready to go home", tone: "muted" },
+      {
+        label: "Before and after a first puppy groom",
+        tone: "blush",
+        src: "/media/puppy-groom/puppy-before-after.jpeg",
+      },
     ],
   },
   {
