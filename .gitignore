@@ -35,3 +35,6 @@ dist-ssr
 .output
 .wrangler
 package-lock.json
+
+# Salida del build de Netlify
+.netlify

@@ -21,3 +21,12 @@
 # Rutas en espanol de la version anterior del sitio nuevo
 /servicios/unas               /services/nails         301
 /servicios/*                  /services/:splat        301
+
+# Comodin de renderizado en servidor. TIENE QUE IR EL ULTIMO: en _redirects
+# gana la primera regla que coincide, asi que si sube de posicion se traga
+# todas las redirecciones 301 de arriba.
+# Nitro dice en el build que lo anade solo, pero no lo escribe, y sin esta
+# linea Netlify devuelve 404 en todas las paginas.
+# No afecta a los archivos de public/: una regla 200 sin "!" solo se aplica
+# cuando no existe un archivo estatico que coincida.
+/*                            /.netlify/functions/server   200
