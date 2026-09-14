@@ -44,8 +44,11 @@ function SmsTermsPage() {
       <Section title="How to opt in">
         <p>
           You may opt in by checking the text messaging consent box when you book an appointment on
-          our website, by completing our client intake form in person at our studio, or by asking a
-          member of our team to enable text messages for your account.
+          our website at{" "}
+          <a href="/reservar" className="underline">
+            kissesandpawsboardandcare.com/reservar
+          </a>
+          .
         </p>
         <p>
           The consent checkbox is not pre-checked, and it is optional. Consent to receive text
