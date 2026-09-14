@@ -103,9 +103,9 @@ function PrivacyPage() {
           with any third parties.
         </p>
         <p>
-          We do not sell, rent, or trade your personal information. We do not share your mobile
-          phone number, your text messaging consent, or any opt-in data with third parties or
-          affiliates for their own marketing or promotional purposes, and we never will.
+          We do not sell, rent, or trade your personal information. Your mobile phone number, your
+          text messaging consent, and your opt-in data are never sold or shared with any third
+          parties or affiliates.
         </p>
       </Section>
 
