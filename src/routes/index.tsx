@@ -10,7 +10,10 @@ const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
 )}`;
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
-const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
+// Mapa de la ficha de Google Business (Compartir > Insertar un mapa): no necesita
+// clave de API y muestra nombre, estrellas y resenas. Idioma forzado a ingles (en/us).
+const MAPS_EMBED =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.2189266665246!2d-80.291597226029!3d25.763331408540406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b99ca97d4e09%3A0x2c559c8911b160ca!2sKisses%20and%20Paws%20Board%20and%20Care!5e0!3m2!1sen!2sus!4v1789393872285!5m2!1sen!2sus";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -472,7 +475,7 @@ function Index() {
                   width="100%"
                   height="320"
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="aspect-[16/9] w-full border-0"
                   allowFullScreen
                 />
