@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SmsOptInRouteImport } from './routes/sms-opt-in'
 import { Route as SmsTermsRouteImport } from './routes/sms-terms'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmsOptInRoute = SmsOptInRouteImport.update({
+  id: '/sms-opt-in',
+  path: '/sms-opt-in',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SmsTermsRoute = SmsTermsRouteImport.update({
@@ -38,12 +44,14 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-opt-in': typeof SmsOptInRoute
   '/sms-terms': typeof SmsTermsRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-opt-in': typeof SmsOptInRoute
   '/sms-terms': typeof SmsTermsRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-opt-in': typeof SmsOptInRoute
   '/sms-terms': typeof SmsTermsRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy' | '/sms-terms' | '/services/$slug'
+  fullPaths: '/' | '/privacy' | '/sms-opt-in' | '/sms-terms' | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/sms-terms' | '/services/$slug'
-  id: '__root__' | '/' | '/privacy' | '/sms-terms' | '/services/$slug'
+  to: '/' | '/privacy' | '/sms-opt-in' | '/sms-terms' | '/services/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/privacy'
+    | '/sms-opt-in'
+    | '/sms-terms'
+    | '/services/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacyRoute: typeof PrivacyRoute
+  SmsOptInRoute: typeof SmsOptInRoute
   SmsTermsRoute: typeof SmsTermsRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
 }
@@ -83,6 +99,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sms-opt-in': {
+      id: '/sms-opt-in'
+      path: '/sms-opt-in'
+      fullPath: '/sms-opt-in'
+      preLoaderRoute: typeof SmsOptInRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sms-terms': {
@@ -105,6 +128,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacyRoute: PrivacyRoute,
+  SmsOptInRoute: SmsOptInRoute,
   SmsTermsRoute: SmsTermsRoute,
   ServicesSlugRoute: ServicesSlugRoute,
 }

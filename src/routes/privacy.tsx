@@ -65,8 +65,8 @@ function PrivacyPage() {
 
       <Section title="Text messaging (SMS)">
         <p>
-          With your express consent, we send appointment confirmations, reminders, service updates
-          and secure payment links by text message to the mobile number you provide. Consent to
+          With your express consent, we send appointment confirmations and secure payment links by
+          text message to the mobile number you provide. Consent to
           receive text messages is not a condition of purchasing any service.
         </p>
         <ul className="ml-5 list-disc space-y-1">

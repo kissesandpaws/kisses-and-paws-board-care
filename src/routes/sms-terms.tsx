@@ -34,9 +34,8 @@ function SmsTermsPage() {
 
       <Section title="Program description">
         <p>
-          {BUSINESS_NAME} sends appointment confirmations, appointment reminders, service updates
-          about your pet, and secure payment links by text message (SMS) to customers who have asked
-          to receive them. This is a customer care and transactional program. We do not send
+          {BUSINESS_NAME} sends appointment confirmations and secure payment links by text message
+          (SMS) to customers who have asked to receive them. This is a customer care and transactional program. We do not send
           marketing or promotional text messages.
         </p>
       </Section>
@@ -48,6 +47,10 @@ function SmsTermsPage() {
           <a href="/reservar" className="underline">
             kissesandpawsboardandcare.com/reservar
           </a>
+          . See{" "}
+          <Link to="/sms-opt-in" className="underline">
+            how the opt-in works, with a screenshot
+          </Link>
           .
         </p>
         <p>
