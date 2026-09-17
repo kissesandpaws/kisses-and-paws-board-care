@@ -30,11 +30,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Salida de build
-.output
-.wrangler
-package-lock.json
-
-# Salida del build de Netlify
-.netlify

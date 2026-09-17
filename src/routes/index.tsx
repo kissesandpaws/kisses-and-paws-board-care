@@ -1,38 +1,35 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { SocialLinks } from "@/components/social-links";
-import { StudioCarousel } from "@/components/studio-carousel";
-import { TeamSection } from "@/components/team-section";
-import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
+import heroSalonDogAsset from "@/assets/hero-salon-dog.jpeg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
-const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
-  "Hi! I'd like to book grooming and boarding for my dog. Can you help me set up an appointment?"
-)}`;
+const PHONE = "+17866700164";
+const PHONE_DISPLAY = "+1 786-670-0164";
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hola, quiero reservar grooming y boarding para mi perrito. ¿Me ayudan con una cita?"
+);
+const WHATSAPP = `https://wa.me/17866700164?text=${WHATSAPP_MESSAGE}`;
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
-// Mapa de la ficha de Google Business (Compartir > Insertar un mapa): no necesita
-// clave de API y muestra nombre, estrellas y resenas. Idioma forzado a ingles (en/us).
-const MAPS_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.2189266665246!2d-80.291597226029!3d25.763331408540406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b99ca97d4e09%3A0x2c559c8911b160ca!2sKisses%20and%20Paws%20Board%20and%20Care!5e0!3m2!1sen!2sus!4v1789393872285!5m2!1sen!2sus";
+const MAPS_EMBED = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=5760+SW+8th+St+Suite+300,Miami,FL+33144`;
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Dog Grooming in West Miami, FL | Kisses and Paws Board and Care" },
+      { title: "Kisses and Paws Board and Care — Grooming en West Miami" },
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 132 reviews.",
+          "Grooming boutique y hospedaje para perros en West Miami, FL. Razas pequeñas, cachorros, baño y corte. 5.0 en Google con 132 reseñas.",
       },
       {
         property: "og:title",
-        content: "Dog Grooming in West Miami, FL | Kisses and Paws Board and Care",
+        content: "Kisses and Paws Board and Care — Grooming en West Miami",
       },
       {
         property: "og:description",
         content:
-          "Boutique dog grooming and pet care in West Miami, FL. Grooming, boarding, daycare and dental. Rated 5.0 on Google.",
+          "Grooming boutique y hospedaje para perros en West Miami, FL. Razas pequeñas, cachorros, baño y corte.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -46,10 +43,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "PetStore",
           name: "Kisses and Paws Board and Care",
-          description:
-            "Boutique dog grooming and boarding studio in West Miami, FL. Especially experienced with small breeds, offering cage-free grooming, puppy grooming, boarding, daycare and anesthesia-free dental cleaning.",
           telephone: PHONE_DISPLAY,
-          priceRange: "$$",
           address: {
             "@type": "PostalAddress",
             streetAddress: "5760 SW 8th St Suite 300",
@@ -58,12 +52,6 @@ export const Route = createFileRoute("/")({
             postalCode: "33144",
             addressCountry: "US",
           },
-          areaServed: [
-            { "@type": "City", name: "West Miami" },
-            { "@type": "City", name: "Coral Gables" },
-            { "@type": "City", name: "Doral" },
-            { "@type": "Place", name: "Flagami" },
-          ],
           openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -74,24 +62,6 @@ export const Route = createFileRoute("/")({
             "@type": "AggregateRating",
             ratingValue: "5",
             reviewCount: "132",
-          },
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "Dog grooming and boarding services in West Miami",
-            itemListElement: [
-              "Full Groom",
-              "Puppy Groom",
-              "Bath & Tidy",
-              "Boarding",
-              "Daycare",
-              "NATS — Dental Cleaning",
-              "Bath",
-              "Nails",
-              "Transportation",
-            ].map((name) => ({
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name },
-            })),
           },
         }),
       },
@@ -104,63 +74,63 @@ const services = [
     icon: "✂",
     slug: "full-groom",
     title: "Full Groom",
-    text: "Bath, brush-out, haircut and a detailed finish tailored to your dog.",
+    text: "Baño, cepillado, corte de pelo y acabado detallado a la medida de tu perrito.",
     tone: "blush",
   },
   {
     icon: "🐾",
     slug: "puppy-groom",
     title: "Puppy Groom",
-    text: "Gentle first baths, calm and unhurried, for puppies just starting out.",
+    text: "Primeros baños con paciencia y calma para cachorros que apenas empiezan.",
     tone: "muted",
   },
   {
     icon: "🛁",
     slug: "bath-tidy",
     title: "Bath & Tidy",
-    text: "A refreshing bath, nails, ears and a face-and-paw tidy between haircuts.",
+    text: "Baño refrescante, uñas, oídos y retoque de cara y patas entre cortes.",
     tone: "secondary",
   },
   {
     icon: "🌙",
     slug: "board-care",
     title: "Boarding",
-    text: "A home-style stay with a real routine, close supervision and new friends.",
+    text: "Hospedaje supervisado en un espacio limpio, seguro y lleno de amigos nuevos.",
     tone: "dark",
   },
   {
     icon: "☀️",
     slug: "daycare",
     title: "Daycare",
-    text: "A day of care, play and socialization while you are at work.",
+    text: "Día de cuidado, juegos y socialización para tu perrito mientras tú trabajas.",
     tone: "blush",
   },
   {
     icon: "🦷",
     slug: "nats",
     title: "NATS — Dental",
-    text: "Gentle anesthesia-free teeth cleaning for a fresh, healthy smile.",
+    text: "Limpieza dental suave sin anestesia para una sonrisa fresca y saludable.",
     tone: "blush",
   },
   {
     icon: "🫧",
     slug: "bath",
     title: "Bath",
-    text: "A deep bath with professional products, careful drying and a full brush-out.",
+    text: "Baño profundo con productos profesionales, secado y cepillado completo.",
     tone: "secondary",
   },
   {
     icon: "💅",
-    slug: "nails",
-    title: "Nails",
-    text: "Nail trims and filing with gentle handling and breaks for nervous dogs.",
+    slug: "unas",
+    title: "Uñas",
+    text: "Corte y limado de uñas con manejo gentil y pausas para perros nerviosos.",
     tone: "muted",
   },
   {
     icon: "🚐",
     slug: "transportation",
     title: "Transportation",
-    text: "Home pickup and delivery for grooming and boarding in West Miami.",
+    text: "Recogida y entrega a domicilio para grooming y boarding en West Miami.",
     tone: "dark",
   },
 ];
@@ -169,20 +139,20 @@ const reviews = [
   {
     initial: "C",
     name: "Candela_ Miami",
-    meta: "Google · 2 months ago",
-    text: "I took my yorkie for a full grooming and it went beyond my expectations. They treated my baby girl with much loving care and she felt very attentive ease from the start.",
+    meta: "Google · hace 2 meses",
+    text: "Llevé a mi yorkie a un grooming completo y superó mis expectativas. Trataron a mi bebé con muchísimo cariño y se sintió tranquila todo el tiempo.",
   },
   {
     initial: "C",
     name: "Cassidy C",
-    meta: "Google · 3 weeks ago",
-    text: "I am so grateful I found Kisses and Paws. I took my puppy there for a groom and they did an incredible job. Stefhany was so patient with Navy.",
+    meta: "Google · hace 3 semanas",
+    text: "Estoy muy agradecida de haber encontrado Kisses and Paws. Hicieron un trabajo increíble con mi cachorro y Stefhany fue súper paciente con Navy.",
   },
   {
     initial: "M",
     name: "Melissa Lyle",
-    meta: "Google · 2 weeks ago",
-    text: "I am so happy I found this place and it is great since it is close to our home! She did a great job with both of my dogs and I can tell they had a great day and felt comfortable.",
+    meta: "Google · hace 2 semanas",
+    text: "Muy feliz de haber encontrado este lugar cerca de casa. Hizo un gran trabajo con mis dos perros y se notaba que la pasaron increíble.",
   },
 ];
 
@@ -194,51 +164,39 @@ function Index() {
           <div className="flex items-center gap-3 translate-y-1.5">
             <img
               src={logoAsset.url}
-              alt="Kisses and Paws Board and Care logo"
+              alt="Logo de Kisses and Paws Board and Care"
               width={822}
               height={661}
               className="h-20 w-auto"
             />
             <div className="leading-tight">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
-                Dog Grooming &amp; Pet Care
+                Boarding
               </p>
-              <p className="hidden max-w-[280px] text-xs leading-snug text-muted-foreground sm:block">
+              <p className="max-w-[280px] text-xs leading-snug text-muted-foreground">
                 West Miami, Florida. Conveniently located at 5760 SW 8th Street, Suite 300, FL
                 33144
               </p>
             </div>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-semibold text-muted-foreground md:flex">
-            <a href="#services" className="transition-colors hover:text-primary">
-              Services
+            <a href="#servicios" className="transition-colors hover:text-primary">
+              Servicios
             </a>
-            <a href="#reviews" className="transition-colors hover:text-primary">
-              Reviews
+            <a href="#resenas" className="transition-colors hover:text-primary">
+              Reseñas
             </a>
-            <a href="#team" className="transition-colors hover:text-primary">
-              Team
-            </a>
-            <a href="#visit" className="transition-colors hover:text-primary">
-              Visit us
+            <a href="#visitanos" className="transition-colors hover:text-primary">
+              Visítanos
             </a>
           </nav>
-          <div className="flex shrink-0 items-center gap-2">
-            <a
-              href={BOOKING}
-              className="inline-flex items-center rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5"
-            >
-              Book Now
-            </a>
-            <a
-              href={`tel:${PHONE}`}
-              aria-label={`Call Kisses and Paws at ${PHONE_DISPLAY}`}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:px-5"
-            >
-              <span className="size-2 rounded-full bg-rose" />
-              Call us
-            </a>
-          </div>
+          <a
+            href={`tel:${PHONE}`}
+            className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
+          >
+            <span className="size-2 rounded-full bg-rose" />
+            Llámanos
+          </a>
         </div>
       </header>
 
@@ -249,27 +207,28 @@ function Index() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blush px-3 py-1.5">
                 <span className="font-bold tracking-widest text-crimson">★★★★★</span>
                 <span className="text-xs font-semibold text-accent-foreground">
-                  5.0 · 132 reviews
+                  5.0 · 132 reseñas
                 </span>
               </div>
               <h1 className="font-display text-5xl leading-[1.03] md:text-6xl">
-                Gentle care and
+                Cuidado gentil y
                 <br />
-                beautiful <span className="italic text-primary">grooming</span>
+                <span className="italic text-primary">grooming</span> hermoso
                 <br />
-                for the littlest ones.
+                para los más pequeños.
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-                A boutique dog grooming and pet care studio in West Miami, FL 33144. Especially
-                experienced with small breeds, and every dog gets the same thing: cage-free,
-                unhurried, and fussed over from nose to tail.
+                Un estudio boutique de grooming y hospedaje en West Miami. Especialistas en razas
+                pequeñas, cachorros y un trato detallista en un espacio limpio y tranquilo.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href={BOOKING}
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  Book grooming &amp; boarding
+                  Reservar grooming y boarding
                 </a>
                 <a
                   href={MAPS}
@@ -277,15 +236,14 @@ function Index() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-bold transition-colors hover:border-primary hover:text-primary"
                 >
-                  Get directions
+                  Cómo llegar
                 </a>
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-5 text-sm">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <span className="size-2 rounded-full bg-rose" />
                   <span>
-                    <span className="font-bold text-foreground">Monday to Saturday</span> · 9:30 -
-                    17:00
+                    <span className="font-bold text-foreground">Lunes a sábado</span> · 9:30 - 17:00
                   </span>
                 </div>
                 <div className="hidden h-4 w-px bg-border sm:block" />
@@ -296,15 +254,14 @@ function Index() {
             <div className="md:col-span-6">
               <div className="relative">
                 <img
-                  src="/media/hero/hero-dog-neon.jpeg"
-                  alt="Freshly groomed goldendoodle sitting on a velvet bench under the neon sign at the Kisses and Paws studio in West Miami"
-                  width={1086}
-                  height={1448}
-                  fetchPriority="high"
+                  src={heroSalonDogAsset.url}
+                  alt="Perrito feliz en el salón de Kisses and Paws con letrero neon rosa"
+                  width={1024}
+                  height={1280}
                   className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[var(--shadow-soft)]"
                 />
                 <div className="absolute -right-3 top-6 rotate-3 rounded-full bg-ink px-4 py-2 text-xs font-bold text-background">
-                  Gentle with every breed
+                  Expertas en razas pequeñas
                 </div>
               </div>
             </div>
@@ -315,36 +272,32 @@ function Index() {
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-3 text-sm font-semibold text-muted-foreground">
             <span>Puppy grooming</span>
             <span className="text-rose">·</span>
-            <span>Full grooming</span>
+            <span>Grooming completo</span>
             <span className="text-rose">·</span>
             <span>Bath &amp; tidy</span>
             <span className="text-rose">·</span>
-            <span>Dog boarding</span>
+            <span>Hospedaje</span>
             <span className="text-rose">·</span>
-            <span>All breeds welcome</span>
+            <span>Razas pequeñas</span>
           </div>
         </div>
 
-        <StudioCarousel />
-
-        <section id="services" className="mx-auto max-w-6xl px-6 py-16">
+        <section id="servicios" className="mx-auto max-w-6xl px-6 py-16">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                What we do
+                Lo que hacemos
               </p>
-              <h2 className="font-display text-3xl md:text-4xl">
-                Dog grooming services in West Miami
-              </h2>
+              <h2 className="font-display text-3xl md:text-4xl">Servicios con mucho amor</h2>
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <Link
                 key={s.title}
-                to="/services/$slug"
+                to="/servicios/$slug"
                 params={{ slug: s.slug }}
-                aria-label={`See details for our ${s.title} service`}
+                aria-label={`Ver detalles del servicio ${s.title}`}
                 className={
                   s.tone === "dark"
                     ? "block rounded-3xl bg-ink p-6 text-background transition-transform hover:-translate-y-1"
@@ -377,20 +330,20 @@ function Index() {
                     s.tone === "dark" ? "text-rose" : "text-primary"
                   }`}
                 >
-                  View service →
+                  Ver servicio →
                 </p>
               </Link>
             ))}
           </div>
         </section>
 
-        <section id="reviews" className="border-y border-border bg-secondary/50">
+        <section id="resenas" className="border-y border-border bg-secondary/50">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <div className="mb-10 text-center">
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                5.0 on Google · 132 reviews
+                5.0 en Google · 132 reseñas
               </p>
-              <h2 className="font-display text-3xl md:text-4xl">Real words, happy tails</h2>
+              <h2 className="font-display text-3xl md:text-4xl">Palabras reales, colitas felices</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {reviews.map((r) => (
@@ -414,17 +367,15 @@ function Index() {
           </div>
         </section>
 
-        <TeamSection />
-
-        <section id="visit" className="mx-auto max-w-6xl px-6 py-16">
+        <section id="visitanos" className="mx-auto max-w-6xl px-6 py-16">
           <div className="grid items-stretch gap-6 md:grid-cols-2">
             <div className="flex flex-col justify-between rounded-[2rem] bg-ink p-8 text-background">
               <div className="pt-6">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-rose">
-                  Visit the studio
+                  Visita el estudio
                 </p>
                 <h2 className="font-display text-3xl leading-tight">
-                  Come meet your dog&apos;s new favorite place
+                  Ven a conocer el nuevo lugar favorito de tu perrito
                 </h2>
               </div>
               <address className="mt-8 space-y-3 text-sm not-italic text-background/80">
@@ -439,23 +390,17 @@ function Index() {
                   </a>
                 </p>
                 <p className="flex items-start gap-3">
-                  <span className="mt-0.5 text-rose">◆</span>Monday to Saturday · 9:30 - 17:00
+                  <span className="mt-0.5 text-rose">◆</span>Lunes a sábado · 9:30 - 17:00
                 </p>
               </address>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href={BOOKING}
-                  className="inline-flex items-center rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-colors hover:bg-crimson"
-                >
-                  Book Now
-                </a>
-                <a
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center rounded-full border border-background/30 px-6 py-3 font-bold transition-colors hover:border-rose hover:text-rose"
+                  className="inline-flex items-center rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  WhatsApp
+                  Reservar por WhatsApp
                 </a>
                 <a
                   href={MAPS}
@@ -470,12 +415,12 @@ function Index() {
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
                 <iframe
-                  title="Kisses and Paws Board and Care location on Google Maps"
+                  title="Ubicación de Kisses and Paws Board and Care en Google Maps"
                   src={MAPS_EMBED}
                   width="100%"
                   height="320"
                   loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
+                  referrerPolicy="no-referrer-when-downgrade"
                   className="aspect-[16/9] w-full border-0"
                   allowFullScreen
                 />
@@ -487,10 +432,10 @@ function Index() {
                 className="col-span-2 flex items-center justify-between rounded-3xl border border-border bg-blush/60 p-5 transition-colors hover:border-primary/40"
               >
                 <div>
-                  <p className="font-display text-lg">Get directions</p>
+                  <p className="font-display text-lg">Obtener indicaciones</p>
                   <p className="text-xs text-muted-foreground">5760 SW 8th St Suite 300, Miami</p>
                 </div>
-                <span className="font-bold text-primary">Open Google Maps →</span>
+                <span className="font-bold text-primary">Abrir Google Maps →</span>
               </a>
             </div>
           </div>
@@ -501,8 +446,8 @@ function Index() {
         href={WHATSAPP}
         target="_blank"
         rel="noreferrer"
-        aria-label="Book grooming or boarding on WhatsApp"
-        className="fixed right-5 bottom-5 z-50 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-soft)] transition-transform hover:scale-105"
+        aria-label="Reservar grooming o boarding por WhatsApp"
+        className="fixed right-5 bottom-[58px] z-50 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-soft)] transition-transform hover:scale-105"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.134 1.585 5.939L0 24l6.335-1.652a11.88 11.88 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -523,19 +468,7 @@ function Index() {
               Board &amp; Care
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/privacy" className="font-semibold hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link to="/sms-terms" className="font-semibold hover:text-primary">
-              SMS Terms
-            </Link>
-          </div>
-          <SocialLinks />
-          <p className="text-center sm:text-right">
-            Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
-            <br />© 2026 · West Miami, Florida · Made with love for dogs
-          </p>
+          <p>© 2026 · West Miami, Florida · Hecho con amor para perritos</p>
         </div>
       </footer>
     </div>

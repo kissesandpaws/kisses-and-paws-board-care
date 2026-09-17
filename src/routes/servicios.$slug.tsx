@@ -1,10 +1,11 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { getService, services } from "@/lib/services";
-import { SocialLinks } from "@/components/social-links";
-import { BOOKING, PHONE_DISPLAY } from "@/lib/site";
 import logoAsset from "@/assets/logo.png.asset.json";
 
-export const Route = createFileRoute("/services/$slug")({
+const PHONE_DISPLAY = "+1 786-670-0164";
+const WHATSAPP_BASE = "https://wa.me/17866700164?text=";
+
+export const Route = createFileRoute("/servicios/$slug")({
   loader: ({ params }) => {
     const service = getService(params.slug);
     if (!service) throw notFound();
@@ -14,14 +15,13 @@ export const Route = createFileRoute("/services/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Service not found — Kisses and Paws" },
+          { title: "Servicio no encontrado — Kisses and Paws" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
-    const { service } = loaderData;
-    const title = service.metaTitle ?? `${service.title} — Kisses and Paws Board and Care`;
-    const description = service.metaDescription ?? service.description[0]!.slice(0, 155);
+    const title = `${loaderData.service.title} — Kisses and Paws Board and Care`;
+    const description = loaderData.service.description[0]!.slice(0, 155);
     return {
       meta: [
         { title },
@@ -31,38 +31,7 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary" },
       ],
-      links: [{ rel: "canonical", href: `/services/${service.slug}` }],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: service.title,
-            description: service.description[0],
-            serviceType: service.title,
-            areaServed: [
-              { "@type": "City", name: "West Miami" },
-              { "@type": "City", name: "Coral Gables" },
-              { "@type": "City", name: "Doral" },
-              { "@type": "Place", name: "Flagami" },
-            ],
-            provider: {
-              "@type": "PetStore",
-              name: "Kisses and Paws Board and Care",
-              telephone: PHONE_DISPLAY,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "5760 SW 8th St Suite 300",
-                addressLocality: "Miami",
-                addressRegion: "FL",
-                postalCode: "33144",
-                addressCountry: "US",
-              },
-            },
-          }),
-        },
-      ],
+      links: [{ rel: "canonical", href: `/servicios/${loaderData.service.slug}` }],
     };
   },
   component: ServicePage,
@@ -71,6 +40,9 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const { service } = Route.useLoaderData();
+  const whatsapp = `${WHATSAPP_BASE}${encodeURIComponent(
+    `Hola, quiero reservar el servicio ${service.title} para mi perrito. ¿Me ayudan con una cita?`
+  )}`;
   const others = services.filter((s) => s.slug !== service.slug);
 
   return (
@@ -80,7 +52,7 @@ function ServicePage() {
           <Link to="/" className="flex items-center gap-3">
             <img
               src={logoAsset.url}
-              alt="Kisses and Paws Board and Care logo"
+              alt="Logo de Kisses and Paws Board and Care"
               width={822}
               height={661}
               className="h-16 w-auto"
@@ -89,32 +61,23 @@ function ServicePage() {
               Board &amp; Care
             </p>
           </Link>
-          <div className="flex shrink-0 items-center gap-2">
-            <a
-              href={BOOKING}
-              className="inline-flex items-center rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5"
-            >
-              Book Now
-            </a>
-            <a
-              href={`tel:+17866700164`}
-              aria-label={`Call Kisses and Paws at ${PHONE_DISPLAY}`}
-              className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
-            >
-              <span className="size-2 rounded-full bg-rose" />
-              {PHONE_DISPLAY}
-            </a>
-          </div>
+          <a
+            href={`tel:+17866700164`}
+            className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:inline-flex"
+          >
+            <span className="size-2 rounded-full bg-rose" />
+            {PHONE_DISPLAY}
+          </a>
         </div>
       </header>
 
       <main className="mx-auto max-w-6xl px-6">
         <nav className="py-6 text-sm text-muted-foreground">
           <Link to="/" className="font-semibold text-primary hover:text-crimson">
-            Home
+            Inicio
           </Link>
           <span className="mx-2 text-ash">/</span>
-          <span>Services</span>
+          <span>Servicios</span>
           <span className="mx-2 text-ash">/</span>
           <span className="font-semibold text-foreground">{service.title}</span>
         </nav>
@@ -123,7 +86,7 @@ function ServicePage() {
           <div className="grid items-start gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Service
+                Servicio
               </p>
               <h1 className="font-display text-4xl leading-tight md:text-5xl">{service.title}</h1>
               <p className="mt-3 font-display text-xl italic text-rose">{service.tagline}</p>
@@ -134,37 +97,34 @@ function ServicePage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href={BOOKING}
+                  href={whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground transition-colors hover:bg-crimson"
                 >
-                  {service.ctaLabel ?? `Book ${service.title}`}
+                  Reservar {service.title}
                 </a>
                 <Link
                   to="/"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-bold transition-colors hover:border-primary hover:text-primary"
                 >
-                  ← Back to home
+                  ← Volver al inicio
                 </Link>
               </div>
             </div>
 
             <aside className="space-y-5 md:col-span-5">
               <div className="rounded-3xl bg-ink p-6 text-background">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose">Duration</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose">Duración</p>
                 <p className="mt-1 font-display text-2xl">{service.duration}</p>
-                {service.durationNote ? (
-                  <p className="mt-1.5 text-xs leading-relaxed text-background/70">
-                    {service.durationNote}
-                  </p>
-                ) : null}
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-rose">
-                  Ideal for
+                  Ideal para
                 </p>
                 <p className="mt-1 text-sm text-background/80">{service.ideal}</p>
               </div>
               <div className="rounded-3xl border border-border bg-card p-6">
                 <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  What is included
+                  Qué incluye
                 </p>
                 <ul className="space-y-2.5">
                   {service.includes.map((item) => (
@@ -183,9 +143,9 @@ function ServicePage() {
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Gallery
+                Galería
               </p>
-              <h2 className="font-display text-3xl">{service.title} moments</h2>
+              <h2 className="font-display text-3xl">Momentos de {service.title}</h2>
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -193,9 +153,7 @@ function ServicePage() {
               g.src ? (
                 <figure
                   key={g.label}
-                  className={`overflow-hidden rounded-3xl border border-border bg-card ${
-                    g.wide ? "sm:col-span-2 lg:col-span-3" : ""
-                  }`}
+                  className="overflow-hidden rounded-3xl border border-border bg-card"
                 >
                   {g.type === "video" ? (
                     <video
@@ -205,14 +163,14 @@ function ServicePage() {
                       playsInline
                       preload="metadata"
                       className="aspect-square w-full object-cover"
-                      aria-label={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
+                      aria-label={`${service.title} — ${g.label} en Kisses and Paws`}
                     />
                   ) : (
                     <img
                       src={g.src}
-                      alt={`${service.title} — ${g.label} at Kisses and Paws in West Miami`}
+                      alt={`${service.title} — ${g.label} en Kisses and Paws`}
                       loading="lazy"
-                      className={g.wide ? "w-full" : "aspect-square w-full object-cover"}
+                      className="aspect-square w-full object-cover"
                     />
                   )}
                   <figcaption className="px-4 py-3 font-display text-base text-crimson">
@@ -234,7 +192,7 @@ function ServicePage() {
                     🐾
                   </span>
                   <p className="font-display text-lg text-crimson">{g.label}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">Photo coming soon</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Foto próximamente</p>
                 </div>
               )
             )}
@@ -242,18 +200,18 @@ function ServicePage() {
         </section>
 
         <section className="border-t border-border py-14">
-          <h2 className="mb-6 font-display text-2xl">Other services</h2>
+          <h2 className="mb-6 font-display text-2xl">Otros servicios</h2>
           <div className="grid gap-4 sm:grid-cols-3">
             {others.map((s) => (
               <Link
                 key={s.slug}
-                to="/services/$slug"
+                to="/servicios/$slug"
                 params={{ slug: s.slug }}
                 className="group rounded-3xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
               >
                 <h3 className="font-display text-lg group-hover:text-primary">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.tagline}</p>
-                <p className="mt-4 text-sm font-bold text-primary">View service →</p>
+                <p className="mt-4 text-sm font-bold text-primary">Ver servicio →</p>
               </Link>
             ))}
           </div>
@@ -274,19 +232,7 @@ function ServicePage() {
               Board &amp; Care
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/privacy" className="font-semibold hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link to="/sms-terms" className="font-semibold hover:text-primary">
-              SMS Terms
-            </Link>
-          </div>
-          <SocialLinks />
-          <p className="text-center sm:text-right">
-            Serving West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods
-            <br />© 2026 · West Miami, Florida · Made with love for dogs
-          </p>
+          <p>© 2026 · West Miami, Florida · Hecho con amor para perritos</p>
         </div>
       </footer>
     </div>
@@ -297,15 +243,13 @@ function ServiceNotFound() {
   return (
     <div className="grid min-h-screen place-items-center bg-background px-6 text-center text-foreground">
       <div>
-        <h1 className="font-display text-4xl">Service not found</h1>
-        <p className="mt-3 text-muted-foreground">
-          This service does not exist or has been moved.
-        </p>
+        <h1 className="font-display text-4xl">Servicio no encontrado</h1>
+        <p className="mt-3 text-muted-foreground">Este servicio no existe o fue movido.</p>
         <Link
           to="/"
           className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground hover:bg-crimson"
         >
-          Back to home
+          Volver al inicio
         </Link>
       </div>
     </div>

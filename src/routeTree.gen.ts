@@ -10,79 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as SmsOptInRouteImport } from './routes/sms-opt-in'
-import { Route as SmsTermsRouteImport } from './routes/sms-terms'
-import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as ServiciosSlugRouteImport } from './routes/servicios.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SmsOptInRoute = SmsOptInRouteImport.update({
-  id: '/sms-opt-in',
-  path: '/sms-opt-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SmsTermsRoute = SmsTermsRouteImport.update({
-  id: '/sms-terms',
-  path: '/sms-terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/services/$slug',
-  path: '/services/$slug',
+const ServiciosSlugRoute = ServiciosSlugRouteImport.update({
+  id: '/servicios/$slug',
+  path: '/servicios/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/privacy': typeof PrivacyRoute
-  '/sms-opt-in': typeof SmsOptInRoute
-  '/sms-terms': typeof SmsTermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/privacy': typeof PrivacyRoute
-  '/sms-opt-in': typeof SmsOptInRoute
-  '/sms-terms': typeof SmsTermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/privacy': typeof PrivacyRoute
-  '/sms-opt-in': typeof SmsOptInRoute
-  '/sms-terms': typeof SmsTermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy' | '/sms-opt-in' | '/sms-terms' | '/services/$slug'
+  fullPaths: '/' | '/servicios/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/sms-opt-in' | '/sms-terms' | '/services/$slug'
-  id:
-    | '__root__'
-    | '/'
-    | '/privacy'
-    | '/sms-opt-in'
-    | '/sms-terms'
-    | '/services/$slug'
+  to: '/' | '/servicios/$slug'
+  id: '__root__' | '/' | '/servicios/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PrivacyRoute: typeof PrivacyRoute
-  SmsOptInRoute: typeof SmsOptInRoute
-  SmsTermsRoute: typeof SmsTermsRoute
-  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServiciosSlugRoute: typeof ServiciosSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -94,32 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sms-opt-in': {
-      id: '/sms-opt-in'
-      path: '/sms-opt-in'
-      fullPath: '/sms-opt-in'
-      preLoaderRoute: typeof SmsOptInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sms-terms': {
-      id: '/sms-terms'
-      path: '/sms-terms'
-      fullPath: '/sms-terms'
-      preLoaderRoute: typeof SmsTermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/$slug': {
-      id: '/services/$slug'
-      path: '/services/$slug'
-      fullPath: '/services/$slug'
-      preLoaderRoute: typeof ServicesSlugRouteImport
+    '/servicios/$slug': {
+      id: '/servicios/$slug'
+      path: '/servicios/$slug'
+      fullPath: '/servicios/$slug'
+      preLoaderRoute: typeof ServiciosSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -127,10 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PrivacyRoute: PrivacyRoute,
-  SmsOptInRoute: SmsOptInRoute,
-  SmsTermsRoute: SmsTermsRoute,
-  ServicesSlugRoute: ServicesSlugRoute,
+  ServiciosSlugRoute: ServiciosSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

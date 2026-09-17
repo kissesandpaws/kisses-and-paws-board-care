@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "7ec87ecc-dc12-4396-b1dd-6455f407f69d",
-  "project_id": "0414b0d8-0df9-4bb7-ad31-10a2b1763852",
-  "url": "/media/7ec87ecc-dc12-4396-b1dd-6455f407f69d/full-groom-2.jpeg",
-  "r2_key": "a/v1/0414b0d8-0df9-4bb7-ad31-10a2b1763852/7ec87ecc-dc12-4396-b1dd-6455f407f69d/full-groom-2.jpeg",
-  "original_filename": "full-groom-2.jpeg",
-  "size": 452498,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-29T14:25:48Z"
+  "created_at": "2026-08-29T14:25:48Z",
+  "original_filename": "full-groom-2.jpeg",
+  "project_id": "b997d3eb-4085-46dd-b1a1-1409514d6808",
+  "r2_key": "a/v1/b997d3eb-4085-46dd-b1a1-1409514d6808/7ec87ecc-dc12-4396-b1dd-6455f407f69d/full-groom-2.jpeg",
+  "size": 452498,
+  "url": "/__l5e/assets-v1/7ec87ecc-dc12-4396-b1dd-6455f407f69d/full-groom-2.jpeg",
+  "version": 1
 }

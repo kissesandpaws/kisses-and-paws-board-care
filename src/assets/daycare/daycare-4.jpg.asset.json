@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "2b69aaac-9a9d-422e-894d-734b0aba3f1c",
-  "project_id": "0414b0d8-0df9-4bb7-ad31-10a2b1763852",
-  "url": "/media/2b69aaac-9a9d-422e-894d-734b0aba3f1c/daycare-4.jpg",
-  "r2_key": "a/v1/0414b0d8-0df9-4bb7-ad31-10a2b1763852/2b69aaac-9a9d-422e-894d-734b0aba3f1c/daycare-4.jpg",
-  "original_filename": "daycare-4.jpg",
-  "size": 110202,
   "content_type": "image/jpeg",
-  "created_at": "2026-09-02T10:23:10Z"
+  "created_at": "2026-09-02T10:23:10Z",
+  "original_filename": "daycare-4.jpg",
+  "project_id": "b997d3eb-4085-46dd-b1a1-1409514d6808",
+  "r2_key": "a/v1/b997d3eb-4085-46dd-b1a1-1409514d6808/2b69aaac-9a9d-422e-894d-734b0aba3f1c/daycare-4.jpg",
+  "size": 110202,
+  "url": "/__l5e/assets-v1/2b69aaac-9a9d-422e-894d-734b0aba3f1c/daycare-4.jpg",
+  "version": 1
 }
