@@ -23,12 +23,26 @@ export interface ServiceDetail {
   title: string;
   tagline: string;
   duration: string;
+  // Matiz que se muestra en letra pequena bajo la duracion, cuando el tiempo
+  // depende del perro y no de un valor fijo.
+  durationNote?: string;
   ideal: string;
+  // Etiqueta alternativa del boton de reserva. Transportation la usa porque el
+  // servicio necesita coordinacion previa y no se "reserva" directamente.
+  ctaLabel?: string;
   metaTitle: string;
   metaDescription: string;
   description: string[];
   includes: string[];
-  gallery: { label: string; tone: string; src?: string; type?: "image" | "video" }[];
+  // wide: para fotos apaisadas (antes/despues, panoramicas). Ocupan toda la fila
+  // y conservan su proporcion original en vez de recortarse a cuadrado.
+  gallery: {
+    label: string;
+    tone: string;
+    src?: string;
+    type?: "image" | "video";
+    wide?: boolean;
+  }[];
 }
 
 export const services: ServiceDetail[] = [
@@ -37,14 +51,16 @@ export const services: ServiceDetail[] = [
     title: "Full Groom",
     tagline: "The complete service, from nose to tail.",
     duration: "2 – 3 hours",
-    ideal: "Small breed dogs who need a complete haircut.",
+    durationNote:
+      "Timing varies based on coat condition, size, behavior and the style you ask for.",
+    ideal: "Any dog who needs a full haircut, from tiny coats to big ones.",
     metaTitle: "Full Groom — Dog Grooming in West Miami, FL | Kisses and Paws",
     metaDescription:
-      "Full-service dog grooming in West Miami, FL 33144. Bath, breed haircut, nails and ears with cage-free, stress-free handling for small breeds.",
+      "Full-service dog grooming in West Miami, FL 33144. Bath, breed haircut, nails and ears with cage-free, stress-free handling. Especially experienced with small breeds.",
     description: [
       "Our Full Groom is the signature experience at Kisses and Paws Board and Care, and it is much more than a haircut. It is an unhurried appointment designed to send your dog home refreshed, comfortable and beautiful, with every detail handled at their pace.",
       "We start with a warm bath using gentle, professional-grade products, followed by a careful blow-dry and a thorough brush-out to release every tangle. Then we shape the coat to the breed standard or the look you prefer, always putting your dog's comfort first.",
-      "As small breed specialists in West Miami, we work cage-free and with gentle, hands-on handling from start to finish. If your dog gets nervous, we take breaks. Nobody here is in a rush.",
+      "We are especially experienced with small breeds, but every dog gets the same treatment: cage-free, hands-on, and never hurried. If your dog gets nervous, we stop and take a break. Nobody here is in a rush.",
     ],
     includes: [
       "Bath with professional shampoo and conditioner",
@@ -52,7 +68,7 @@ export const services: ServiceDetail[] = [
       "Breed-standard or custom haircut",
       "Nail trim and file",
       "Ear cleaning",
-      "Anal gland expression (when needed)",
+      "Anal gland expression available upon request",
       "Complimentary cologne and bow or bandana",
     ],
     gallery: [
@@ -72,7 +88,7 @@ export const services: ServiceDetail[] = [
     ideal: "Puppies from 8 weeks to 6 months old.",
     metaTitle: "Puppy Grooming in West Miami, FL | Kisses and Paws Board and Care",
     metaDescription:
-      "Gentle puppy grooming in West Miami, FL. A calm, cage-free first visit with short sessions, treats and plenty of breaks. Book with our small breed specialists.",
+      "Gentle puppy grooming in West Miami, FL. A calm, cage-free first visit with short sessions, treats and plenty of breaks. Book with our unhurried grooming team.",
     description: [
       "First experiences shape a puppy for life. That is why our Puppy Groom is built to make that very first salon visit positive, calm and full of affection, with no rushing and no scary surprises.",
       "We work in short, gentle sessions, introducing your puppy to the water, the dryer and the grooming table little by little, with lots of pauses, treats and cuddles. The goal is simple: your puppy should learn that being groomed feels good.",
@@ -88,10 +104,11 @@ export const services: ServiceDetail[] = [
       "At-home care guidance for new puppy parents",
     ],
     gallery: [
-      { label: "First visit", tone: "muted" },
-      { label: "A calm bath", tone: "blush" },
-      { label: "Treats and cuddles", tone: "secondary" },
-      { label: "Ready to go home", tone: "muted" },
+      {
+        label: "Before and after a first puppy groom",
+        tone: "blush",
+        src: "/media/puppy-groom/puppy-before-after.jpeg",
+      },
     ],
   },
   {
@@ -126,16 +143,16 @@ export const services: ServiceDetail[] = [
   {
     slug: "board-care",
     title: "Boarding",
-    tagline: "Supervised, spotless boarding full of new friends.",
+    tagline: "A home-style stay, full of new friends.",
     duration: "Overnight or multi-day stays",
-    ideal: "Small breeds who need care while you travel.",
-    metaTitle: "Dog Boarding in West Miami, FL 33144 | Kisses and Paws Board and Care",
+    ideal: "Especially experienced with small breeds and compatible social dogs.",
+    metaTitle: "Dog Boarding in West Miami & West Kendall, FL | Kisses and Paws",
     metaDescription:
-      "Cage-free dog boarding in West Miami, FL. Small groups, climate-controlled rooms, constant supervision and photo updates while you travel. Small breed specialists.",
+      "Home-style dog boarding for West Miami and West Kendall. Small groups, a real routine, constant supervision and photo updates while you travel.",
     description: [
-      "When you travel, your dog deserves to stay somewhere that feels like home. Our boarding is a boutique stay in West Miami, designed specifically for small breeds who need close supervision and a calm, controlled environment.",
-      "Unlike traditional kennels, we keep small, compatible groups in clean, climate-controlled spaces with constant daytime supervision. Every guest gets a walk, play and rest routine matched to their age and energy.",
-      "We send photo updates so you can see how well they are doing. And if you'd like, you can add a grooming appointment so they come home clean and looking their best.",
+      "Home style is the whole idea. When you travel, your dog stays in a home built around comfort, supervision and routine: meals at the right hour, walks, play, and a nap spot that is theirs for the week. No kennel runs, no concrete floors, no waiting around.",
+      "We keep the groups small and compatible so nobody gets overwhelmed, and someone is always around. We are especially experienced with small breeds and with easygoing social dogs of any size.",
+      "If a grooming or daycare appointment falls during the stay, your dog can ride over to our West Miami studio and come back fresh. And you get photo updates the whole time, because we know you are going to be wondering.",
     ],
     includes: [
       "Supervised boarding in small groups",
@@ -146,10 +163,19 @@ export const services: ServiceDetail[] = [
       "Optional grooming before pickup",
     ],
     gallery: [
-      { label: "Play area", tone: "blush" },
-      { label: "Comfortable rest", tone: "muted" },
-      { label: "New friends", tone: "secondary" },
-      { label: "Constant supervision", tone: "blush" },
+      {
+        label: "Couch time with friends",
+        tone: "blush",
+        src: "/media/boarding/boarding-living-room.jpeg",
+        wide: true,
+      },
+      {
+        label: "Bedtime, all tucked in",
+        tone: "muted",
+        src: "/media/boarding/boarding-bedroom.jpeg",
+      },
+      { label: "Room to run", tone: "secondary", src: "/media/boarding/boarding-yard.jpeg" },
+      { label: "Our shaded backyard", tone: "blush", src: "/media/boarding/boarding-patio.jpeg" },
     ],
   },
   {
@@ -233,10 +259,11 @@ export const services: ServiceDetail[] = [
       "Complimentary cologne",
     ],
     gallery: [
-      { label: "A relaxing bath", tone: "secondary" },
-      { label: "Gentle drying", tone: "blush" },
-      { label: "Shiny coat", tone: "muted" },
-      { label: "Ready to go home", tone: "secondary" },
+      { label: "A relaxing bath", tone: "secondary", src: "/media/bath/bath-rinse.jpeg" },
+      { label: "Gentle drying", tone: "blush", src: "/media/bath/bath-drying.jpeg" },
+      // Mismo archivo que la galeria de Bath & Tidy: se reutiliza en vez de duplicarlo.
+      { label: "Fresh and clean", tone: "muted", src: bathTidy2.url, type: "video" },
+      { label: "Ready to go home", tone: "secondary", src: "/media/bath/bath-finished.jpeg" },
     ],
   },
   {
@@ -262,10 +289,18 @@ export const services: ServiceDetail[] = [
       "Advice on frequency by activity and breed",
     ],
     gallery: [
-      { label: "Before and after", tone: "blush", src: unas1.url },
-      { label: "A safe trim", tone: "muted" },
-      { label: "Clean paws", tone: "secondary" },
-      { label: "Gentle handling", tone: "blush" },
+      {
+        label: "Before and after",
+        tone: "blush",
+        src: "/media/nails/nails-before-after.jpeg",
+        wide: true,
+      },
+      {
+        label: "Overgrown nails, trimmed short",
+        tone: "muted",
+        src: "/media/nails/nails-paw-before-after.jpeg",
+      },
+      { label: "Clean paws", tone: "secondary", src: unas1.url },
     ],
   },
   {
@@ -273,13 +308,16 @@ export const services: ServiceDetail[] = [
     title: "Transportation",
     tagline: "We pick your dog up and bring them safely home.",
     duration: "By zone in West Miami and nearby areas",
+    durationNote:
+      "Rides depend on your zone and on availability, so they need to be arranged ahead of time.",
     ideal: "Dog parents who need help getting their pet to and from the salon.",
+    ctaLabel: "Request Transportation",
     metaTitle: "Dog Grooming Pickup & Delivery in West Miami, FL | Kisses and Paws",
     metaDescription:
       "Door-to-door pickup and delivery for dog grooming and boarding in West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods.",
     description: [
       "Between work, traffic and packed schedules, getting your dog to the groomer isn't always easy. That's why we offer Transportation: a pickup and delivery service that makes caring for your dog even more convenient.",
-      "Our vehicle is safe, clean and climate-controlled, with proper space for small breeds. Your dog travels comfortably and with company, no stressful crates and no unnecessary waiting. We schedule around your day and let you know when we're on the way.",
+      "Your dog travels in a clean, climate-controlled vehicle with safety-focused handling throughout the ride, and with company the whole way. We schedule around your day and let you know when we are on the way.",
       "We serve West Miami, Coral Gables, Flagami, Doral and nearby Miami neighborhoods, and you can pair transportation with any grooming or boarding service.",
     ],
     includes: [

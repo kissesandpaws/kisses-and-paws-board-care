@@ -1,11 +1,11 @@
 {
+  "version": 1,
   "asset_id": "a6269b20-1c3c-406a-a7cd-9453d7cde62d",
-  "content_type": "image/jpeg",
-  "created_at": "2026-09-02T07:57:22Z",
+  "project_id": "0414b0d8-0df9-4bb7-ad31-10a2b1763852",
+  "url": "/media/a6269b20-1c3c-406a-a7cd-9453d7cde62d/transport-2.jpg",
+  "r2_key": "a/v1/0414b0d8-0df9-4bb7-ad31-10a2b1763852/a6269b20-1c3c-406a-a7cd-9453d7cde62d/transport-2.jpg",
   "original_filename": "transport-2.jpg",
-  "project_id": "b997d3eb-4085-46dd-b1a1-1409514d6808",
-  "r2_key": "a/v1/b997d3eb-4085-46dd-b1a1-1409514d6808/a6269b20-1c3c-406a-a7cd-9453d7cde62d/transport-2.jpg",
   "size": 1236147,
-  "url": "/__l5e/assets-v1/a6269b20-1c3c-406a-a7cd-9453d7cde62d/transport-2.jpg",
-  "version": 1
+  "content_type": "image/jpeg",
+  "created_at": "2026-09-02T07:57:22Z"
 }
