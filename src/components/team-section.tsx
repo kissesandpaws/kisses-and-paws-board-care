@@ -48,7 +48,7 @@ export function TeamSection() {
           </div>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <ul className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
           {team.map((src) => (
             <li
               key={src}
