@@ -1,6 +1,7 @@
-// Seccion del equipo. Todavia sin fotos ni nombres de certificaciones: cuando
-// lleguen, se anaden aqui. A proposito no hay marcadores de "foto proximamente",
-// porque un hueco vacio se ve peor que no tener la foto.
+// Seccion del equipo. Fotos sin nombres por ahora: cuando lleguen los nombres
+// y las certificaciones, se anaden aqui.
+
+const team = ["/media/team/team-1.jpg", "/media/team/team-2.jpg", "/media/team/team-3.jpg"];
 
 const credentials = ["Professional certifications", "Specialized seminars", "CPR & first aid"];
 
@@ -14,7 +15,7 @@ export function TeamSection() {
               The people behind the scissors
             </p>
             <h2 className="font-display text-3xl leading-tight md:text-4xl">
-              Meet the team your dog will actually remember
+              Meet part of the team your dog will actually remember
             </h2>
           </div>
 
@@ -46,6 +47,24 @@ export function TeamSection() {
             </p>
           </div>
         </div>
+
+        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {team.map((src) => (
+            <li
+              key={src}
+              className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]"
+            >
+              <img
+                src={src}
+                alt="Kisses and Paws Board and Care team member"
+                width={720}
+                height={900}
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
