@@ -78,10 +78,10 @@ export function StudioCarousel() {
   };
 
   return (
-    <section aria-label="Inside our studio" className="border-b border-border bg-background">
+    <section aria-label="Meet a Part of the Kisses and Paws World" className="border-b border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-10">
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-          Inside our studio
+          Meet a Part of the Kisses and Paws World
         </p>
 
         <div className="relative">
