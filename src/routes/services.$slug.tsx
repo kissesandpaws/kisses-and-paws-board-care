@@ -81,8 +81,8 @@ function ServicePage() {
             <img
               src={logoAsset.url}
               alt="Kisses and Paws Board and Care logo"
-              width={822}
-              height={661}
+              width={900}
+              height={671}
               className="h-16 w-auto"
             />
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
@@ -189,8 +189,11 @@ function ServicePage() {
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {service.gallery.map((g) =>
-              g.src ? (
+            {/* Solo se pinta lo que tiene foto o video: una tarjeta vacia se ve peor
+                que un hueco menos en la galeria. */}
+            {service.gallery
+              .filter((g) => g.src)
+              .map((g) => (
                 <figure
                   key={g.label}
                   className={`overflow-hidden rounded-3xl border border-border bg-card ${
@@ -219,25 +222,7 @@ function ServicePage() {
                     {g.label}
                   </figcaption>
                 </figure>
-              ) : (
-                <div
-                  key={g.label}
-                  className={`flex aspect-[4/5] flex-col items-center justify-center rounded-3xl border border-border p-6 text-center ${
-                    g.tone === "blush"
-                      ? "bg-blush"
-                      : g.tone === "muted"
-                        ? "bg-muted"
-                        : "bg-secondary"
-                  }`}
-                >
-                  <span className="mb-3 text-4xl" aria-hidden="true">
-                    🐾
-                  </span>
-                  <p className="font-display text-lg text-crimson">{g.label}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">Photo coming soon</p>
-                </div>
-              )
-            )}
+              ))}
           </div>
         </section>
 
@@ -266,8 +251,8 @@ function ServicePage() {
             <img
               src={logoAsset.url}
               alt="Kisses and Paws"
-              width={822}
-              height={661}
+              width={900}
+              height={671}
               className="h-9 w-auto"
             />
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rose">

@@ -18,8 +18,8 @@ export function LegalLayout({ title, children }: { title: string; children: Reac
             <img
               src={logoAsset.url}
               alt={`${BUSINESS_NAME} logo`}
-              width={822}
-              height={661}
+              width={900}
+              height={671}
               className="h-16 w-auto"
             />
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">

@@ -10,6 +10,9 @@ const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
 )}`;
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=5760+SW+8th+St+Suite+300,+Miami,+FL+33144";
+// Ficha de Google del negocio (cid), para que las reseñas de la web lleven a las
+// reseñas reales.
+const GOOGLE_REVIEWS = "https://maps.google.com/?cid=3194631623210524874";
 // Mapa de la ficha de Google Business (Compartir > Insertar un mapa): no necesita
 // clave de API y muestra nombre, estrellas y resenas. Idioma forzado a ingles (en/us).
 const MAPS_EMBED =
@@ -23,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 132 reviews.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 141 reviews.",
       },
       {
         property: "og:title",
@@ -67,13 +70,13 @@ export const Route = createFileRoute("/")({
           openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "09:30",
+            opens: "09:00",
             closes: "17:00",
           },
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5",
-            reviewCount: "132",
+            reviewCount: "141",
           },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
@@ -190,17 +193,17 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <header className="border-b border-border bg-background/85 backdrop-blur-md sticky top-0 z-50">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3 translate-y-1.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:px-6 sm:py-4">
+          <div className="flex items-center gap-3 sm:translate-y-1.5">
             <img
               src={logoAsset.url}
               alt="Kisses and Paws Board and Care logo"
-              width={822}
-              height={661}
-              className="h-20 w-auto"
+              width={900}
+              height={671}
+              className="h-12 w-auto sm:h-20"
             />
             <div className="leading-tight">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-rose">
+              <p className="hidden text-[11px] font-bold uppercase tracking-[0.2em] text-rose sm:block">
                 Dog Grooming &amp; Pet Care
               </p>
               <p className="hidden max-w-[280px] text-xs leading-snug text-muted-foreground sm:block">
@@ -226,14 +229,14 @@ function Index() {
           <div className="flex shrink-0 items-center gap-2">
             <a
               href={BOOKING}
-              className="inline-flex items-center rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-primary px-3.5 py-2 text-sm font-bold text-primary-foreground transition-colors hover:bg-crimson sm:px-5 sm:py-2.5"
             >
               Book Now
             </a>
             <a
               href={`tel:${PHONE}`}
               aria-label={`Call Kisses and Paws at ${PHONE_DISPLAY}`}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-background transition-colors hover:bg-crimson sm:px-5"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-ink px-3.5 py-2 text-sm font-bold text-background transition-colors hover:bg-crimson sm:px-5 sm:py-2.5"
             >
               <span className="size-2 rounded-full bg-rose" />
               Call us
@@ -246,12 +249,17 @@ function Index() {
         <section className="mx-auto max-w-6xl px-6 pt-12 pb-10">
           <div className="grid items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-6">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blush px-3 py-1.5">
+              <a
+                href={GOOGLE_REVIEWS}
+                target="_blank"
+                rel="noreferrer"
+                className="mb-6 inline-flex items-center gap-2 rounded-full bg-blush px-3 py-1.5 transition-colors hover:bg-rose/60"
+              >
                 <span className="font-bold tracking-widest text-crimson">★★★★★</span>
                 <span className="text-xs font-semibold text-accent-foreground">
-                  5.0 · 132 reviews
+                  5.0 · 141 reviews on Google
                 </span>
-              </div>
+              </a>
               <h1 className="font-display text-5xl leading-[1.03] md:text-6xl">
                 Gentle care and
                 <br />
@@ -284,7 +292,7 @@ function Index() {
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <span className="size-2 rounded-full bg-rose" />
                   <span>
-                    <span className="font-bold text-foreground">Monday to Saturday</span> · 9:30 -
+                    <span className="font-bold text-foreground">Monday to Saturday</span> · 9:00 -
                     17:00
                   </span>
                 </div>
@@ -388,7 +396,9 @@ function Index() {
           <div className="mx-auto max-w-6xl px-6 py-16">
             <div className="mb-10 text-center">
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                5.0 on Google · 132 reviews
+                <a href={GOOGLE_REVIEWS} target="_blank" rel="noreferrer" className="hover:underline">
+                  5.0 on Google · 141 reviews
+                </a>
               </p>
               <h2 className="font-display text-3xl md:text-4xl">Real words, happy tails</h2>
             </div>
@@ -439,7 +449,7 @@ function Index() {
                   </a>
                 </p>
                 <p className="flex items-start gap-3">
-                  <span className="mt-0.5 text-rose">◆</span>Monday to Saturday · 9:30 - 17:00
+                  <span className="mt-0.5 text-rose">◆</span>Monday to Saturday · 9:00 - 17:00
                 </p>
               </address>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -515,8 +525,8 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Kisses and Paws"
-              width={822}
-              height={661}
+              width={900}
+              height={671}
               className="h-9 w-auto"
             />
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rose">

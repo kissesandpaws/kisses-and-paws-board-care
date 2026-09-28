@@ -136,8 +136,6 @@ export const services: ServiceDetail[] = [
     gallery: [
       { label: "A refreshing bath", tone: "secondary", src: bathTidy1.url, type: "video" },
       { label: "Face tidy", tone: "blush", src: bathTidy2.url, type: "video" },
-      { label: "Perfect nails", tone: "muted" },
-      { label: "Fresh and happy", tone: "secondary" },
     ],
   },
   {
@@ -332,7 +330,6 @@ export const services: ServiceDetail[] = [
       { label: "Our transport vehicle", tone: "muted", src: transport1.url },
       { label: "Home pickup", tone: "blush", src: transport2.url },
       { label: "Safe delivery", tone: "secondary", src: transport3.url },
-      { label: "Local routes", tone: "muted" },
     ],
   },
 ];
