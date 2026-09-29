@@ -112,14 +112,17 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Google tag (Google Ads AW-11294943757). Con "linker" hacia el dominio
-            de la app de reservas para poder atribuir la conversion de reserva,
-            que se dispara en ese otro dominio. */}
+        {/* Google tag. La misma libreria reporta a dos propiedades:
+            - Google Ads (AW-11294943757): conversiones. Con "linker" hacia el
+              dominio de la app de reservas para atribuir la conversion de
+              reserva, que se dispara en ese otro dominio.
+            - Google Analytics 4 (G-KB5DQ43SMC): visitas y comportamiento. Se
+              perdio al migrar de Wix; se reinstala aqui. */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11294943757" />
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-11294943757',{linker:{domains:['kissesandpaws-production.up.railway.app'],accept_incoming:true}});",
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-11294943757',{linker:{domains:['kissesandpaws-production.up.railway.app'],accept_incoming:true}});gtag('config','G-KB5DQ43SMC');",
           }}
         />
       </head>
