@@ -3,6 +3,7 @@ import { SocialLinks } from "@/components/social-links";
 import { StudioCarousel } from "@/components/studio-carousel";
 import { TeamSection } from "@/components/team-section";
 import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const WHATSAPP = `${WHATSAPP_BASE}${encodeURIComponent(
@@ -463,6 +464,7 @@ function Index() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={trackWhatsAppClick}
                   className="inline-flex items-center rounded-full border border-background/30 px-6 py-3 font-bold transition-colors hover:border-rose hover:text-rose"
                 >
                   WhatsApp
@@ -511,6 +513,7 @@ function Index() {
         href={WHATSAPP}
         target="_blank"
         rel="noreferrer"
+        onClick={trackWhatsAppClick}
         aria-label="Book grooming or boarding on WhatsApp"
         className="fixed right-5 bottom-[58px] z-50 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-soft)] transition-transform hover:scale-105"
       >

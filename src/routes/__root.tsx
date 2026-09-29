@@ -112,6 +112,16 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google tag (Google Ads AW-11294943757). Con "linker" hacia el dominio
+            de la app de reservas para poder atribuir la conversion de reserva,
+            que se dispara en ese otro dominio. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11294943757" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-11294943757',{linker:{domains:['kissesandpaws-production.up.railway.app'],accept_incoming:true}});",
+          }}
+        />
       </head>
       <body>
         {children}
