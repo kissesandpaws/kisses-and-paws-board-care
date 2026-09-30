@@ -1,7 +1,10 @@
-// Seccion del equipo. Fotos sin nombres por ahora: cuando lleguen los nombres
-// y las certificaciones, se anaden aqui.
+// Seccion del equipo. Cada foto lleva nombre y cargo, de izquierda a derecha.
 
-const team = ["/media/team/team-1.jpg", "/media/team/team-2.jpg", "/media/team/team-3.jpg"];
+const team = [
+  { src: "/media/team/team-1.jpg", name: "Stefhany", role: "Head Groomer" },
+  { src: "/media/team/team-2.jpg", name: "Ashley", role: "Head Driver" },
+  { src: "/media/team/team-3.jpg", name: "Chris", role: "Manager" },
+];
 
 const credentials = ["Professional certifications", "Specialized seminars", "CPR & first aid"];
 
@@ -49,19 +52,22 @@ export function TeamSection() {
         </div>
 
         <ul className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
-          {team.map((src) => (
-            <li
-              key={src}
-              className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]"
-            >
-              <img
-                src={src}
-                alt="Kisses and Paws Board and Care team member"
-                width={720}
-                height={900}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover object-top"
-              />
+          {team.map((member) => (
+            <li key={member.src} className="text-center">
+              <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+                <img
+                  src={member.src}
+                  alt={`${member.name}, ${member.role} at Kisses and Paws Board and Care`}
+                  width={720}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full object-cover object-top"
+                />
+              </div>
+              <p className="mt-3 font-display text-base font-semibold text-foreground sm:text-lg">
+                {member.name}
+              </p>
+              <p className="text-xs text-muted-foreground sm:text-sm">{member.role}</p>
             </li>
           ))}
         </ul>
