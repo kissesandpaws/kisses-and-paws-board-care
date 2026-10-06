@@ -1,5 +1,9 @@
 // Datos del negocio compartidos por todas las paginas.
 
+// URL base del sitio en produccion (sin barra final). Se usa para los canonical
+// absolutos; Google prefiere la URL completa con dominio, no una ruta relativa.
+export const SITE_URL = "https://kissesandpawsboardandcare.com";
+
 export const PHONE = "+17866700164";
 export const PHONE_DISPLAY = "+1 786-670-0164";
 

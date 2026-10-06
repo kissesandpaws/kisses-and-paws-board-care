@@ -6,7 +6,7 @@ import {
   LegalLayout,
   Section,
 } from "@/components/legal-layout";
-import { PHONE_DISPLAY } from "@/lib/site";
+import { PHONE_DISPLAY, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/privacy")({
       },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/privacy` }],
   }),
 });
 

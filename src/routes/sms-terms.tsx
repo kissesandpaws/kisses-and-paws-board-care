@@ -6,7 +6,7 @@ import {
   LegalLayout,
   Section,
 } from "@/components/legal-layout";
-import { PHONE_DISPLAY } from "@/lib/site";
+import { PHONE_DISPLAY, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/sms-terms")({
   component: SmsTermsPage,
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/sms-terms")({
       },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: "/sms-terms" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/sms-terms` }],
   }),
 });
 

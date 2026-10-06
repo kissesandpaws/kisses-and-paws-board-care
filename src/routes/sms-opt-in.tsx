@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { BUSINESS_NAME, LegalLayout, Section } from "@/components/legal-layout";
+import { SITE_URL } from "@/lib/site";
 
 // Pagina publica para la revision de la campana A2P 10DLC de Twilio: la casilla
 // de SMS solo aparece en el ultimo paso de la reserva, asi que aqui se ensena
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/sms-opt-in")({
       },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: "/sms-opt-in" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/sms-opt-in` }],
   }),
 });
 

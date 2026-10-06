@@ -2,7 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { SocialLinks } from "@/components/social-links";
 import { StudioCarousel } from "@/components/studio-carousel";
 import { TeamSection } from "@/components/team-section";
-import { BOOKING, PHONE, PHONE_DISPLAY, WHATSAPP_BASE } from "@/lib/site";
+import { BOOKING, PHONE, PHONE_DISPLAY, SITE_URL, WHATSAPP_BASE } from "@/lib/site";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",

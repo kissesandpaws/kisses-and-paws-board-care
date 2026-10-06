@@ -1,7 +1,7 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { getService, services } from "@/lib/services";
 import { SocialLinks } from "@/components/social-links";
-import { BOOKING, PHONE_DISPLAY } from "@/lib/site";
+import { BOOKING, PHONE_DISPLAY, SITE_URL } from "@/lib/site";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary" },
       ],
-      links: [{ rel: "canonical", href: `/services/${service.slug}` }],
+      links: [{ rel: "canonical", href: `${SITE_URL}/services/${service.slug}` }],
       scripts: [
         {
           type: "application/ld+json",
