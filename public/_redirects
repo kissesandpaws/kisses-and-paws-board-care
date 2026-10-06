@@ -1,3 +1,12 @@
+# Dominio viejo (con "boarding") -> dominio nuevo, 301 en un solo salto y
+# conservando la ruta. Van PRIMERO porque en _redirects gana la primera regla
+# que coincide: asi cualquier visita a los dominios viejos se redirige antes de
+# llegar al catch-all de abajo, que si no serviria el sitio bajo el host viejo.
+# Como son aliases del mismo sitio, Netlify les emite el certificado (sin esto
+# redirigirian, pero el alias por si solo sirve el contenido, no redirige).
+https://kissesandpawsboardingandcare.com/*      https://kissesandpawsboardandcare.com/:splat  301!
+https://www.kissesandpawsboardingandcare.com/*  https://kissesandpawsboardandcare.com/:splat  301!
+
 # Reserva online: /reservar apunta a la app de reservas.
 # Esta redireccion hoy la hace Wix; hay que mantenerla aqui para que el boton
 # "Book Now" siga funcionando cuando el dominio deje de apuntar a Wix.
