@@ -129,7 +129,7 @@ const services = [
     icon: "🌙",
     slug: "board-care",
     title: "Boarding",
-    text: "A home-style stay with a real routine, close supervision and new friends.",
+    text: "A home-style stay with a real routine, close supervision and new friends. Serving Coral Gables/West Kendall and West Miami.",
     tone: "dark",
   },
   {

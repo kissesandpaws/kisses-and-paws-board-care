@@ -144,12 +144,12 @@ export const services: ServiceDetail[] = [
     tagline: "A home-style stay, full of new friends.",
     duration: "Overnight or multi-day stays",
     ideal: "Especially experienced with small breeds and compatible social dogs.",
-    metaTitle: "Dog Boarding in West Miami & West Kendall, FL | Kisses and Paws",
+    metaTitle: "Dog Boarding in West Miami & Coral Gables/West Kendall, FL | Kisses and Paws",
     metaDescription:
-      "Home-style dog boarding for West Miami and West Kendall. Small groups, a real routine, constant supervision and photo updates while you travel.",
+      "Home-style dog boarding for West Miami and Coral Gables/West Kendall. Small groups, a real routine, constant supervision and photo updates while you travel.",
     description: [
       "Home style is the whole idea. When you travel, your dog stays in a home built around comfort, supervision and routine: meals at the right hour, walks, play, and a nap spot that is theirs for the week. No kennel runs, no concrete floors, no waiting around.",
-      "We keep the groups small and compatible so nobody gets overwhelmed, and someone is always around. We are especially experienced with small breeds and with easygoing social dogs of any size.",
+      "We keep the groups small and compatible so nobody gets overwhelmed, and someone is always around. We are especially experienced with small breeds and with easygoing social dogs of any size. Boarding is open to dogs from Coral Gables/West Kendall and West Miami.",
       "If a grooming or daycare appointment falls during the stay, your dog can ride over to our West Miami studio and come back fresh. And you get photo updates the whole time, because we know you are going to be wondering.",
     ],
     includes: [
