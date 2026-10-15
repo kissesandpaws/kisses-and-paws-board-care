@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 141 reviews.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 4.9 on Google with 153 reviews.",
       },
       {
         property: "og:title",
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Boutique dog grooming and pet care in West Miami, FL. Grooming, boarding, daycare and dental. Rated 5.0 on Google.",
+          "Boutique dog grooming and pet care in West Miami, FL. Grooming, boarding, daycare and dental.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -76,8 +76,8 @@ export const Route = createFileRoute("/")({
           },
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "5",
-            reviewCount: "141",
+            ratingValue: "4.9",
+            reviewCount: "153",
           },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
@@ -173,19 +173,19 @@ const reviews = [
   {
     initial: "C",
     name: "Candela_ Miami",
-    meta: "Google · 2 months ago",
+    meta: "Google · 3 months ago",
     text: "I took my yorkie for a full grooming and it went beyond my expectations. They treated my baby girl with much loving care and she felt very attentive ease from the start.",
   },
   {
     initial: "C",
     name: "Cassidy C",
-    meta: "Google · 3 weeks ago",
+    meta: "Google · 2 months ago",
     text: "I am so grateful I found Kisses and Paws. I took my puppy there for a groom and they did an incredible job. Stefhany was so patient with Navy.",
   },
   {
     initial: "M",
     name: "Melissa Lyle",
-    meta: "Google · 2 weeks ago",
+    meta: "Google · 2 months ago",
     text: "I am so happy I found this place and it is great since it is close to our home! She did a great job with both of my dogs and I can tell they had a great day and felt comfortable.",
   },
 ];
@@ -258,7 +258,7 @@ function Index() {
               >
                 <span className="font-bold tracking-widest text-crimson">★★★★★</span>
                 <span className="text-xs font-semibold text-accent-foreground">
-                  5.0 · 141 reviews on Google
+                  4.9 · 153 reviews on Google
                 </span>
               </a>
               <h1 className="font-display text-5xl leading-[1.03] md:text-6xl">
@@ -398,7 +398,7 @@ function Index() {
             <div className="mb-10 text-center">
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 <a href={GOOGLE_REVIEWS} target="_blank" rel="noreferrer" className="hover:underline">
-                  5.0 on Google · 141 reviews
+                  4.9 on Google · 153 reviews
                 </a>
               </p>
               <h2 className="font-display text-3xl md:text-4xl">Real words, happy tails</h2>
