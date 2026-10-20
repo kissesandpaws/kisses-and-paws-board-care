@@ -27,6 +27,9 @@ https://www.kissesandpawsboardingandcare.com/*  https://kissesandpawsboardandcar
 /contact                      /#visit                 301
 /whatsapp                     /#visit                 301
 
+# Resto de Wix: feed del blog que Google rastreo en la web anterior.
+/blog-feed.xml                /                       301
+
 # Rutas en espanol de la version anterior del sitio nuevo
 /servicios/unas               /services/nails         301
 /servicios/*                  /services/:splat        301

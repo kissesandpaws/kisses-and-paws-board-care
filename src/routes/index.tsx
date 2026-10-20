@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
           "Boutique dog grooming and pet care in West Miami, FL. Grooming, boarding, daycare and dental.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
