@@ -40,6 +40,34 @@ const photos = [
     src: "/media/studio/studio-backyard.jpeg",
     alt: "Fenced backyard with shade and open grass for dogs to run",
   },
+  {
+    src: "/media/studio/backyard-palms-pool-dogs.jpeg",
+    alt: "Dogs exploring the tropical backyard with palm trees beside the fenced pool",
+  },
+  {
+    src: "/media/studio/backyard-turf-sunbathing.jpeg",
+    alt: "Two happy dogs relaxing on the turf next to the fenced pool",
+  },
+  {
+    src: "/media/studio/backyard-poolside-lounging.jpeg",
+    alt: "Poodle stretched out on the pool deck with small dogs nearby, safe behind the pool fence",
+  },
+  {
+    src: "/media/studio/backyard-doodles-turf.jpeg",
+    alt: "Two doodles playing on the backyard turf surrounded by greenery",
+  },
+  {
+    src: "/media/studio/backyard-doodle-poolside.jpeg",
+    alt: "Black doodle sitting on the turf in front of the fenced pool",
+  },
+  {
+    src: "/media/studio/patio-schnauzers.jpeg",
+    alt: "Two miniature schnauzers in bandanas saying hello on the sunny patio",
+  },
+  {
+    src: "/media/studio/poolside-belly-up-nap.jpeg",
+    alt: "Small dog napping belly up in the sun next to the fenced pool",
+  },
 ];
 
 export function StudioCarousel() {
