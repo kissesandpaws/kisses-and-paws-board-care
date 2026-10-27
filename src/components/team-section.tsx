@@ -4,6 +4,7 @@ const team = [
   { src: "/media/team/team-1.jpg", name: "Stefhany", role: "Head Groomer" },
   { src: "/media/team/team-2.jpg", name: "Ashley", role: "Head Driver" },
   { src: "/media/team/team-3.jpg", name: "Chris", role: "Manager" },
+  { src: "/media/team/team-4.jpg", name: "Mogollon", role: "Playground Manager" },
 ];
 
 const credentials = ["Professional certifications", "Specialized seminars", "CPR & first aid"];
@@ -51,7 +52,7 @@ export function TeamSection() {
           </div>
         </div>
 
-        <ul className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
+        <ul className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
           {team.map((member) => (
             <li key={member.src} className="text-center">
               <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
