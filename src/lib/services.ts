@@ -174,6 +174,19 @@ export const services: ServiceDetail[] = [
       },
       { label: "Room to run", tone: "secondary", src: "/media/boarding/boarding-yard.jpeg" },
       { label: "Our shaded backyard", tone: "blush", src: "/media/boarding/boarding-patio.jpeg" },
+      // Mismas fotos que el carrusel de la portada: se reutilizan los archivos
+      // de /media/studio para no publicar duplicados.
+      {
+        label: "Sunny afternoons on the turf",
+        tone: "secondary",
+        src: "/media/studio/backyard-turf-sunbathing.jpeg",
+      },
+      {
+        label: "Safe by the fenced pool",
+        tone: "muted",
+        src: "/media/studio/backyard-doodle-poolside.jpeg",
+      },
+      { label: "New friends on the patio", tone: "blush", src: "/media/studio/patio-schnauzers.jpeg" },
     ],
   },
   {
