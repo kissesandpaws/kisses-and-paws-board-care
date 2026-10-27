@@ -1,13 +1,13 @@
 // Seccion del equipo. Cada foto lleva nombre y cargo, de izquierda a derecha.
 
+import { Link } from "@tanstack/react-router";
+
 const team = [
   { src: "/media/team/team-1.jpg", name: "Stefhany", role: "Head Groomer" },
   { src: "/media/team/team-2.jpg", name: "Ashley", role: "Head Driver" },
   { src: "/media/team/team-3.jpg", name: "Chris", role: "Manager" },
   { src: "/media/team/team-4.jpg", name: "Mogollon", role: "Playground Manager" },
 ];
-
-const credentials = ["Professional certifications", "Specialized seminars", "CPR & first aid"];
 
 export function TeamSection() {
   return (
@@ -31,16 +31,15 @@ export function TeamSection() {
               beautiful finishing, and hands that stay gentle even when a dog is nervous.
             </p>
 
-            <ul className="flex flex-wrap gap-2">
-              {credentials.map((c) => (
-                <li
-                  key={c}
-                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground"
-                >
-                  {c}
-                </li>
-              ))}
-            </ul>
+            {/* Un solo boton para diplomas, seminarios y primeros auxilios: abre
+                /certifications con los certificados reales. */}
+            <Link
+              to="/certifications"
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card px-5 py-2.5 text-sm sm:rounded-full font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              Professional certifications · Specialized seminars · CPR &amp; first aid
+              <span aria-hidden="true" className="text-primary">→</span>
+            </Link>
 
             <p className="text-base leading-relaxed text-muted-foreground">
               We groom with professional products from{" "}
