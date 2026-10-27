@@ -1,0 +1,254 @@
+/*
+ * Tema temporal de Halloween.
+ *
+ * Todo cuelga de la clase .halloween que se pone en <html> solo cuando el
+ * interruptor HALLOWEEN (src/lib/site.ts) esta encendido. Sin esa clase este
+ * archivo no cambia nada. El sitio entero usa variables de color, asi que basta
+ * con reemplazarlas aqui: no se toca ningun texto, enlace ni dato de SEO.
+ *
+ * Para quitarlo: apagar HALLOWEEN, o borrar este archivo, su @import en
+ * styles.css y el componente halloween-decor.tsx.
+ */
+
+html.halloween {
+  --background: oklch(0.17 0.035 300);
+  --foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.22 0.045 300);
+  --card-foreground: oklch(0.95 0.02 85);
+  --popover: oklch(0.22 0.045 300);
+  --popover-foreground: oklch(0.95 0.02 85);
+  --primary: oklch(0.74 0.17 55);
+  --primary-foreground: oklch(0.18 0.03 300);
+  --secondary: oklch(0.27 0.07 305);
+  --secondary-foreground: oklch(0.92 0.03 85);
+  --muted: oklch(0.21 0.04 300);
+  --muted-foreground: oklch(0.78 0.03 300);
+  --accent: oklch(0.32 0.1 305);
+  --accent-foreground: oklch(0.95 0.03 85);
+  --border: oklch(0.34 0.07 305);
+  --input: oklch(0.34 0.07 305);
+  --ring: oklch(0.74 0.17 55);
+
+  --blush: oklch(0.3 0.09 310);
+  --rose: oklch(0.74 0.17 55);
+  --crimson: oklch(0.8 0.16 62);
+  --ink: oklch(0.74 0.17 55);
+  --ash: oklch(0.72 0.03 300);
+
+  --gradient-warm: linear-gradient(135deg, oklch(0.27 0.08 305), oklch(0.17 0.035 300));
+  --shadow-soft: 0 18px 40px -22px oklch(0.74 0.17 55 / 0.45);
+}
+
+/* Fondo con un resplandor morado arriba y naranja abajo, como una noche de bruma. */
+.halloween body {
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% 0%, oklch(0.3 0.12 305 / 0.55), transparent 70%),
+    radial-gradient(ellipse 70% 30% at 50% 100%, oklch(0.5 0.15 50 / 0.18), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Las tarjetas oscuras de la web (ink) pasan a naranja: el texto interior va oscuro. */
+.halloween .bg-ink .text-rose {
+  color: oklch(0.3 0.12 305);
+}
+.halloween .bg-ink .bg-rose {
+  background-color: oklch(0.3 0.12 305);
+}
+
+/* Titulos con un brillo naranja suave. */
+.halloween h1,
+.halloween h2 {
+  text-shadow: 0 0 28px oklch(0.74 0.17 55 / 0.28);
+}
+
+/* El verde de WhatsApp se queda como esta: es la marca del boton. */
+
+/* ---------- Decoracion ---------- */
+
+.hw-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.45 0.17 305), oklch(0.72 0.17 55), oklch(0.45 0.17 305));
+  color: oklch(0.99 0.01 85);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+.hw-web {
+  position: absolute;
+  top: 100%;
+  width: 7.5rem;
+  height: 7.5rem;
+  color: oklch(0.95 0.02 85 / 0.55);
+  pointer-events: none;
+}
+.hw-web-left {
+  left: 0;
+}
+
+/* Capa fija con murcielagos y bruma. No recibe clics y queda debajo de la cabecera. */
+.hw-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hw-bat {
+  position: absolute;
+  left: -240px;
+  width: 150px;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  color: oklch(0.4 0.14 305);
+  filter: drop-shadow(0 0 8px oklch(0.74 0.17 55 / 0.75));
+}
+
+/* Cuelga del borde inferior de la cabecera fija: el hilo queda tapado por ella. */
+.hw-spider {
+  position: absolute;
+  top: 70px;
+  right: 9%;
+  width: 30px;
+  transform-origin: 50% 0;
+  color: oklch(0.45 0.15 305);
+}
+
+/* Calabazas que saltan por la parte baja de la pantalla. */
+.hw-pumpkin {
+  position: absolute;
+  bottom: 0.4rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 0 12px oklch(0.74 0.17 55 / 0.7));
+}
+.hw-pumpkin:nth-of-type(1) {
+  left: 5%;
+}
+.hw-pumpkin:nth-of-type(2) {
+  left: 36%;
+  font-size: 2rem;
+}
+.hw-pumpkin:nth-of-type(3) {
+  left: 66%;
+  font-size: 2.8rem;
+}
+
+@media (max-width: 640px) {
+  .hw-web {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hw-bat {
+    width: 100px;
+  }
+  .hw-pumpkin {
+    font-size: 1.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hw-bat {
+    animation: hw-fly 22s linear infinite;
+  }
+  .hw-bat:nth-child(1) {
+    top: 18%;
+    animation-duration: 24s;
+  }
+  .hw-bat:nth-child(2) {
+    top: 36%;
+    width: 106px;
+    animation-duration: 30s;
+    animation-delay: -9s;
+  }
+  .hw-bat:nth-child(3) {
+    top: 56%;
+    width: 190px;
+    animation-duration: 36s;
+    animation-delay: -20s;
+  }
+  .hw-spider {
+    animation: hw-swing 5s ease-in-out infinite;
+  }
+  .hw-pumpkin {
+    animation: hw-hop 2.6s cubic-bezier(0.3, 0, 0.4, 1) infinite;
+  }
+  .hw-pumpkin:nth-of-type(2) {
+    animation-duration: 2.1s;
+    animation-delay: -0.8s;
+  }
+  .hw-pumpkin:nth-of-type(3) {
+    animation-duration: 3s;
+    animation-delay: -1.7s;
+  }
+}
+
+@keyframes hw-fly {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30vw, -26px);
+  }
+  50% {
+    transform: translate(60vw, 18px);
+  }
+  75% {
+    transform: translate(90vw, -22px);
+  }
+  100% {
+    transform: translate(120vw, 0);
+  }
+}
+
+@keyframes hw-swing {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Se agacha, salta, cae y vuelve a agacharse. */
+@keyframes hw-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.12, 0.88);
+  }
+  12% {
+    transform: translateY(0) scale(0.96, 1.06);
+  }
+  40% {
+    transform: translateY(-110px) scale(0.94, 1.08) rotate(-8deg);
+  }
+  70% {
+    transform: translateY(0) scale(1.08, 0.92) rotate(0deg);
+  }
+  80% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+/* En celular los murcielagos grandes se reducen para no tapar el texto. */
+@media (max-width: 640px) {
+  .hw-bat:nth-child(1) {
+    width: 100px;
+  }
+  .hw-bat:nth-child(2) {
+    width: 74px;
+  }
+  .hw-bat:nth-child(3) {
+    width: 130px;
+  }
+}

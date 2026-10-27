@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -11,6 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { HalloweenDecor } from "../components/halloween-decor";
+import { halloweenOn } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -108,8 +111,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const halloween = halloweenOn(pathname);
   return (
-    <html lang="en">
+    <html lang="en" className={halloween ? "halloween" : undefined}>
       <head>
         <HeadContent />
         {/* Google tag. La misma libreria reporta a dos propiedades:
@@ -127,6 +132,7 @@ function RootShell({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        {halloween ? <HalloweenDecor /> : null}
         {children}
         <Scripts />
       </body>
