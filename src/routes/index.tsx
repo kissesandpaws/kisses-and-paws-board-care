@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 162 reviews.",
+          "Boutique dog grooming and boarding in West Miami, FL 33144. Cage-free, unhurried care, especially experienced with small breeds. Rated 5.0 on Google with 161 reviews.",
       },
       {
         property: "og:title",
@@ -77,7 +77,7 @@ export const Route = createFileRoute("/")({
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5.0",
-            reviewCount: "162",
+            reviewCount: "161",
           },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
@@ -258,7 +258,7 @@ function Index() {
               >
                 <span className="font-bold tracking-widest text-crimson">★★★★★</span>
                 <span className="text-xs font-semibold text-accent-foreground">
-                  5.0 · 162 reviews on Google
+                  5.0 · 161 reviews on Google
                 </span>
               </a>
               <h1 className="font-display text-5xl leading-[1.03] md:text-6xl">
@@ -398,7 +398,7 @@ function Index() {
             <div className="mb-10 text-center">
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 <a href={GOOGLE_REVIEWS} target="_blank" rel="noreferrer" className="hover:underline">
-                  5.0 on Google · 162 reviews
+                  5.0 on Google · 161 reviews
                 </a>
               </p>
               <h2 className="font-display text-3xl md:text-4xl">Real words, happy tails</h2>
