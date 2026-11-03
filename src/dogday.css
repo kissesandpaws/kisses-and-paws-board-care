@@ -1,0 +1,110 @@
+/*
+ * Tema temporal del National Dog Day (ligero).
+ *
+ * No cambia la paleta de la web: una cinta con los colores de la marca arriba y
+ * un rastro de huellas que va apareciendo abajo. Todo cuelga de la clase
+ * .dogday que se pone en <html> en las fechas del calendario de temas
+ * (src/lib/site.ts), y la decoracion solo existe en esas fechas
+ * (dogday-decor.tsx).
+ */
+
+.dd-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.45 0.19 25), oklch(0.56 0.19 15), oklch(0.45 0.19 25));
+  color: oklch(0.99 0.005 20);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+/* Capa fija con las huellas. No recibe clics y queda debajo de la cabecera. */
+.dd-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Rastro de huellas a lo ancho de la parte baja, alternando izquierda y derecha. */
+.dd-trail {
+  position: absolute;
+  left: 3%;
+  right: 12%;
+  bottom: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dd-paw {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: oklch(0.66 0.17 12 / 0.7);
+  transform: rotate(90deg);
+}
+.dd-paw:nth-child(2n) {
+  margin-bottom: 1.1rem;
+}
+
+/* Las huellas aparecen una tras otra, como si un perro cruzara la pantalla. */
+@media (prefers-reduced-motion: no-preference) {
+  .dd-paw {
+    opacity: 0;
+    animation: dd-step 8s ease-out infinite;
+  }
+  .dd-paw:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  .dd-paw:nth-child(3) {
+    animation-delay: 1s;
+  }
+  .dd-paw:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+  .dd-paw:nth-child(5) {
+    animation-delay: 2s;
+  }
+  .dd-paw:nth-child(6) {
+    animation-delay: 2.5s;
+  }
+  .dd-paw:nth-child(7) {
+    animation-delay: 3s;
+  }
+  .dd-paw:nth-child(8) {
+    animation-delay: 3.5s;
+  }
+}
+
+@keyframes dd-step {
+  0% {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+  }
+  6% {
+    opacity: 1;
+    transform: rotate(90deg) scale(1);
+  }
+  55% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* En celular, menos huellas y mas chicas. */
+@media (max-width: 640px) {
+  .dd-paw {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .dd-paw:nth-child(n + 6) {
+    display: none;
+  }
+}

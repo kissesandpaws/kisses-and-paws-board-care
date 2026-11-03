@@ -1,6 +1,10 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "./valentines.css";
+@import "./easter.css";
+@import "./july4.css";
+@import "./dogday.css";
 @import "./halloween.css";
 @import "./thanksgiving.css";
 @import "./christmas.css";

@@ -1,0 +1,112 @@
+/*
+ * Tema temporal de San Valentin (del 1 al 15 de febrero).
+ *
+ * Todo cuelga de la clase .valentines que se pone en <html> solo en las fechas
+ * de San Valentin del calendario de temas (src/lib/site.ts). Sin esa clase este
+ * archivo no cambia nada. La marca ya es rosa y roja: el tema la lleva a un
+ * rosado mas calido, con tarjetas oscuras en tono vino y corazones que suben.
+ */
+
+html.valentines {
+  --background: oklch(0.97 0.022 8);
+  --card: oklch(0.995 0.006 8);
+  --popover: oklch(0.995 0.006 8);
+  --secondary: oklch(0.92 0.05 8);
+  --muted: oklch(0.94 0.025 8);
+  --accent: oklch(0.88 0.08 6);
+  --border: oklch(0.87 0.04 8);
+  --input: oklch(0.87 0.04 8);
+
+  --blush: oklch(0.9 0.065 6);
+  --ink: oklch(0.32 0.1 12);
+
+  --gradient-warm: linear-gradient(135deg, oklch(0.9 0.065 6), oklch(0.97 0.022 8));
+  --shadow-soft: 0 18px 40px -22px oklch(0.53 0.2 22 / 0.45);
+}
+
+/* Fondo con un resplandor rosa arriba. */
+.valentines body {
+  background-image: radial-gradient(
+    ellipse 80% 40% at 50% 0%,
+    oklch(0.88 0.08 6 / 0.55),
+    transparent 70%
+  );
+  background-attachment: fixed;
+}
+
+/* ---------- Decoracion ---------- */
+
+.vd-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.5 0.19 18), oklch(0.6 0.19 5), oklch(0.5 0.19 18));
+  color: oklch(0.99 0.01 10);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+/* Capa fija con los corazones. No recibe clics y queda debajo de la cabecera. */
+.vd-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Sin animacion (movimiento reducido) los corazones no se muestran. */
+.vd-heart {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vd-heart {
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    left: var(--x);
+    width: var(--size);
+    height: auto;
+    color: oklch(0.66 0.19 8 / 0.75);
+    filter: drop-shadow(0 4px 8px oklch(0.53 0.2 22 / 0.25));
+    animation: vd-rise var(--rise) ease-in var(--delay) infinite;
+  }
+  .vd-heart:nth-child(3n + 2) {
+    color: oklch(0.53 0.2 22 / 0.7);
+  }
+  .vd-heart:nth-child(3n + 3) {
+    color: oklch(0.8 0.11 8 / 0.8);
+  }
+}
+
+/* Sube balanceandose y se desvanece arriba. */
+@keyframes vd-rise {
+  0% {
+    transform: translate(0, 0) rotate(-8deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--drift), -55vh) rotate(8deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -110vh) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+/* En celular, menos corazones para no tapar el texto. */
+@media (max-width: 640px) {
+  .vd-heart:nth-child(n + 7) {
+    display: none;
+  }
+}

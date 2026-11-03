@@ -1,0 +1,89 @@
+/*
+ * Tema temporal de Pascua (ligero).
+ *
+ * No cambia la paleta de la web: solo una cinta primaveral arriba y tres huevos
+ * de colores que se balancean abajo. Todo cuelga de la clase .easter que se pone
+ * en <html> en la semana de Pascua del calendario de temas (src/lib/site.ts), y
+ * la decoracion solo existe en esas fechas (easter-decor.tsx).
+ */
+
+.ea-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.5 0.13 300), oklch(0.52 0.1 190), oklch(0.5 0.13 300));
+  color: oklch(0.99 0.01 300);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+/* Capa fija con los huevos. No recibe clics y queda debajo de la cabecera. */
+.ea-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ea-egg {
+  position: absolute;
+  bottom: 0.4rem;
+  width: 2.2rem;
+  height: auto;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 4px 6px oklch(0.4 0.05 300 / 0.25));
+}
+.ea-egg-pink {
+  left: 5%;
+  color: oklch(0.8 0.1 5);
+}
+.ea-egg-mint {
+  left: 36%;
+  width: 1.8rem;
+  color: oklch(0.82 0.09 170);
+}
+.ea-egg-lilac {
+  left: 66%;
+  width: 2.5rem;
+  color: oklch(0.78 0.09 300);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ea-egg {
+    animation: ea-wobble 3s ease-in-out infinite;
+  }
+  .ea-egg-mint {
+    animation-delay: -1s;
+  }
+  .ea-egg-lilac {
+    animation-delay: -2s;
+  }
+}
+
+/* Se balancea como si algo se moviera dentro. */
+@keyframes ea-wobble {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-9deg);
+  }
+  80% {
+    transform: rotate(8deg);
+  }
+  90% {
+    transform: rotate(-4deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .ea-egg {
+    width: 1.7rem;
+  }
+}

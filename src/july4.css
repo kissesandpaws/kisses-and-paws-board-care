@@ -1,0 +1,70 @@
+/*
+ * Tema temporal del 4 de julio (ligero).
+ *
+ * No cambia la paleta de la web: una cinta roja, blanca y azul arriba y unas
+ * estrellas que titilan suave. Todo cuelga de la clase .july4 que se pone en
+ * <html> en las fechas del calendario de temas (src/lib/site.ts), y la
+ * decoracion solo existe en esas fechas (july4-decor.tsx).
+ */
+
+.j4-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.36 0.12 260), oklch(0.5 0.2 25), oklch(0.36 0.12 260));
+  color: oklch(0.99 0 0);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+/* Capa fija con las estrellas. No recibe clics y queda debajo de la cabecera. */
+.j4-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Sin animacion (movimiento reducido) las estrellas no se muestran. */
+.j4-star {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .j4-star {
+    display: block;
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    color: oklch(0.45 0.13 260 / 0.55);
+    animation: j4-twinkle 3s ease-in-out var(--delay) infinite;
+  }
+  .j4-star:nth-child(2n) {
+    color: oklch(0.53 0.2 25 / 0.55);
+  }
+}
+
+@keyframes j4-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(20deg);
+  }
+}
+
+/* En celular, menos estrellas para no tapar el texto. */
+@media (max-width: 640px) {
+  .j4-star:nth-child(n + 7) {
+    display: none;
+  }
+}
