@@ -1,12 +1,12 @@
 /*
  * Tema temporal de Halloween.
  *
- * Todo cuelga de la clase .halloween que se pone en <html> solo cuando el
- * interruptor HALLOWEEN (src/lib/site.ts) esta encendido. Sin esa clase este
+ * Todo cuelga de la clase .halloween que se pone en <html> solo en las fechas
+ * de Halloween del calendario de temas (src/lib/site.ts). Sin esa clase este
  * archivo no cambia nada. El sitio entero usa variables de color, asi que basta
  * con reemplazarlas aqui: no se toca ningun texto, enlace ni dato de SEO.
  *
- * Para quitarlo: apagar HALLOWEEN, o borrar este archivo, su @import en
+ * Para quitarlo: sacarlo del calendario, o borrar este archivo, su @import en
  * styles.css y el componente halloween-decor.tsx.
  */
 

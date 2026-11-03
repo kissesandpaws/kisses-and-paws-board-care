@@ -1,0 +1,107 @@
+/*
+ * Tema temporal de Thanksgiving (ligero).
+ *
+ * No cambia la paleta de la web: solo una cinta otonal arriba y unas pocas
+ * hojas que caen. Todo cuelga de la clase .thanksgiving que se pone en <html>
+ * en las fechas del calendario de temas (src/lib/site.ts), y la decoracion solo
+ * existe en esas fechas (thanksgiving-decor.tsx).
+ */
+
+.tg-ribbon {
+  position: relative;
+  z-index: 55;
+  background: linear-gradient(90deg, oklch(0.47 0.13 40), oklch(0.56 0.15 58), oklch(0.47 0.13 40));
+  color: oklch(0.99 0.01 85);
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+}
+
+/* Capa fija con las hojas. No recibe clics y queda debajo de la cabecera. */
+.tg-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Sin animacion (movimiento reducido) las hojas no se muestran. */
+.tg-leaf {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tg-leaf {
+    display: block;
+    position: absolute;
+    top: -3rem;
+    font-size: 1.6rem;
+    line-height: 1;
+    opacity: 0.85;
+    animation: tg-fall 18s linear infinite;
+  }
+  .tg-leaf:nth-child(1) {
+    left: 6%;
+  }
+  .tg-leaf:nth-child(2) {
+    left: 22%;
+    font-size: 1.3rem;
+    animation-duration: 22s;
+    animation-delay: -7s;
+  }
+  .tg-leaf:nth-child(3) {
+    left: 41%;
+    animation-duration: 20s;
+    animation-delay: -14s;
+  }
+  .tg-leaf:nth-child(4) {
+    left: 60%;
+    font-size: 1.4rem;
+    animation-duration: 24s;
+    animation-delay: -3s;
+  }
+  .tg-leaf:nth-child(5) {
+    left: 78%;
+    font-size: 1.2rem;
+    animation-duration: 19s;
+    animation-delay: -10s;
+  }
+  .tg-leaf:nth-child(6) {
+    left: 92%;
+    animation-duration: 23s;
+    animation-delay: -17s;
+  }
+}
+
+/* Cae balanceandose de un lado a otro. */
+@keyframes tg-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(28px, 28vh) rotate(70deg);
+  }
+  50% {
+    transform: translate(-18px, 56vh) rotate(160deg);
+  }
+  75% {
+    transform: translate(24px, 84vh) rotate(250deg);
+  }
+  100% {
+    transform: translate(0, 112vh) rotate(340deg);
+  }
+}
+
+/* En celular las hojas son mas chicas y caen menos para no tapar el texto. */
+@media (max-width: 640px) {
+  .tg-leaf {
+    font-size: 1.1rem !important;
+  }
+  .tg-leaf:nth-child(n + 5) {
+    display: none;
+  }
+}

@@ -2,6 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 @import "./halloween.css";
+@import "./thanksgiving.css";
+@import "./christmas.css";
 
 @custom-variant dark (&:is(.dark *));
 
