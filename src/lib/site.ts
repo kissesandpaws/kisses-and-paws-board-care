@@ -9,7 +9,7 @@ export const SITE_URL = "https://kissesandpawsboardandcare.com";
 // Twilio se aprobo con esas paginas tal como estan.
 // RETORNO: poner en false el 2026-11-01. La web anterior al tema es el commit
 // b68e2d3 (etiqueta git "pre-halloween").
-export const HALLOWEEN = true;
+export const HALLOWEEN = false;
 const HALLOWEEN_EXCLUDED = ["/privacy", "/sms-terms", "/sms-opt-in"];
 export function halloweenOn(pathname: string) {
   return HALLOWEEN && !HALLOWEEN_EXCLUDED.includes(pathname.replace(/\/$/, ""));
