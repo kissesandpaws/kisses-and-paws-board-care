@@ -9,13 +9,18 @@ export const SITE_URL = "https://kissesandpawsboardandcare.com";
 // como siempre. Las paginas legales nunca llevan tema: la campana de SMS de
 // Twilio se aprobo con esas paginas tal como estan.
 // Fechas "MM-DD", ambas incluidas. Un rango puede cruzar el ano (Navidad termina
-// el 6 de enero, dia de Reyes). La web anterior al primer tema es el commit
-// b68e2d3 (etiqueta git "pre-halloween").
-export type SeasonalTheme = "halloween" | "thanksgiving" | "christmas";
-const SEASONAL_THEMES: { theme: SeasonalTheme; from: string; to: string }[] = [
-  { theme: "halloween", from: "10-01", to: "10-31" },
-  { theme: "thanksgiving", from: "11-16", to: "11-30" },
-  { theme: "christmas", from: "12-01", to: "01-06" },
+// el 6 de enero, dia de Reyes). Pascua cambia cada ano y se calcula. La web
+// anterior al primer tema es el commit b68e2d3 (etiqueta git "pre-halloween").
+export type SeasonalTheme =
+  "valentines" | "easter" | "july4" | "dogday" | "halloween" | "thanksgiving" | "christmas";
+const SEASONAL_THEMES: { theme: SeasonalTheme; dates: (year: number) => [string, string] }[] = [
+  { theme: "valentines", dates: () => ["02-01", "02-15"] },
+  { theme: "easter", dates: easterWeek },
+  { theme: "july4", dates: () => ["06-28", "07-05"] },
+  { theme: "dogday", dates: () => ["08-20", "08-27"] },
+  { theme: "halloween", dates: () => ["10-01", "10-31"] },
+  { theme: "thanksgiving", dates: () => ["11-16", "11-30"] },
+  { theme: "christmas", dates: () => ["12-01", "01-06"] },
 ];
 const THEME_EXCLUDED = ["/privacy", "/sms-terms", "/sms-opt-in"];
 
@@ -23,15 +28,32 @@ export function isSeasonalTheme(value: unknown): value is SeasonalTheme {
   return SEASONAL_THEMES.some(({ theme }) => theme === value);
 }
 
-// Mes y dia de hoy en Miami ("MM-DD"): el servidor de Netlify trabaja en UTC.
-function miamiMonthDay(now: Date) {
+// Semana de Pascua: del lunes anterior al domingo de Pascua. El domingo se
+// calcula con el algoritmo gregoriano anonimo (Meeus/Jones/Butcher).
+function easterWeek(year: number): [string, string] {
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const h = (19 * a + b - Math.floor(b / 4) - Math.floor((8 * b + 13) / 25) + 15) % 30;
+  const l = (32 + 2 * (b % 4) + 2 * Math.floor(c / 4) - h - (c % 4)) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31);
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  const sunday = Date.UTC(year, month - 1, day);
+  const monthDay = (t: number) => new Date(t).toISOString().slice(5, 10);
+  return [monthDay(sunday - 6 * 86400000), monthDay(sunday)];
+}
+
+// Ano y "MM-DD" de hoy en Miami: el servidor de Netlify trabaja en UTC.
+function miamiToday(now: Date) {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: "America/New_York",
+    year: "numeric",
     month: "2-digit",
     day: "2-digit",
   }).formatToParts(now);
   const part = (type: string) => parts.find((p) => p.type === type)?.value;
-  return `${part("month")}-${part("day")}`;
+  return { year: Number(part("year")), monthDay: `${part("month")}-${part("day")}` };
 }
 
 // `forced` sirve para revisar un tema antes de su fecha; las paginas legales
@@ -43,10 +65,11 @@ export function seasonalTheme(
 ): SeasonalTheme | null {
   if (THEME_EXCLUDED.includes(pathname.replace(/\/$/, ""))) return null;
   if (forced) return forced;
-  const today = miamiMonthDay(now);
-  const match = SEASONAL_THEMES.find(({ from, to }) =>
-    from <= to ? today >= from && today <= to : today >= from || today <= to,
-  );
+  const { year, monthDay: today } = miamiToday(now);
+  const match = SEASONAL_THEMES.find(({ dates }) => {
+    const [from, to] = dates(year);
+    return from <= to ? today >= from && today <= to : today >= from || today <= to;
+  });
   return match?.theme ?? null;
 }
 
