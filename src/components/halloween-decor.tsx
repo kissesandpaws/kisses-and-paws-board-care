@@ -1,6 +1,7 @@
 // Decoracion temporal de Halloween. Es solo visual: no lleva enlaces ni
 // contenido que Google deba leer, y la capa fija no recibe clics.
-// Se muestra unicamente cuando HALLOWEEN esta encendido (src/lib/site.ts).
+// Se muestra unicamente en las fechas de Halloween del calendario de temas
+// (src/lib/site.ts).
 
 function Web({ className }: { className: string }) {
   return (
