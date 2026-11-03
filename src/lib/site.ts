@@ -4,15 +4,50 @@
 // absolutos; Google prefiere la URL completa con dominio, no una ruta relativa.
 export const SITE_URL = "https://kissesandpawsboardandcare.com";
 
-// Interruptor del tema de Halloween (temporal). En false la web queda exactamente
-// como siempre. Las paginas legales nunca llevan el tema: la campana de SMS de
+// Calendario de temas de temporada (decoracion temporal). La web se pone sola el
+// tema que toque segun la fecha en Miami; fuera de estas fechas queda exactamente
+// como siempre. Las paginas legales nunca llevan tema: la campana de SMS de
 // Twilio se aprobo con esas paginas tal como estan.
-// RETORNO: poner en false el 2026-11-01. La web anterior al tema es el commit
+// Fechas "MM-DD", ambas incluidas. Un rango puede cruzar el ano (Navidad termina
+// el 6 de enero, dia de Reyes). La web anterior al primer tema es el commit
 // b68e2d3 (etiqueta git "pre-halloween").
-export const HALLOWEEN = false;
-const HALLOWEEN_EXCLUDED = ["/privacy", "/sms-terms", "/sms-opt-in"];
-export function halloweenOn(pathname: string) {
-  return HALLOWEEN && !HALLOWEEN_EXCLUDED.includes(pathname.replace(/\/$/, ""));
+export type SeasonalTheme = "halloween" | "thanksgiving" | "christmas";
+const SEASONAL_THEMES: { theme: SeasonalTheme; from: string; to: string }[] = [
+  { theme: "halloween", from: "10-01", to: "10-31" },
+  { theme: "thanksgiving", from: "11-16", to: "11-30" },
+  { theme: "christmas", from: "12-01", to: "01-06" },
+];
+const THEME_EXCLUDED = ["/privacy", "/sms-terms", "/sms-opt-in"];
+
+export function isSeasonalTheme(value: unknown): value is SeasonalTheme {
+  return SEASONAL_THEMES.some(({ theme }) => theme === value);
+}
+
+// Mes y dia de hoy en Miami ("MM-DD"): el servidor de Netlify trabaja en UTC.
+function miamiMonthDay(now: Date) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const part = (type: string) => parts.find((p) => p.type === type)?.value;
+  return `${part("month")}-${part("day")}`;
+}
+
+// `forced` sirve para revisar un tema antes de su fecha; las paginas legales
+// tampoco lo llevan en ese caso.
+export function seasonalTheme(
+  pathname: string,
+  now = new Date(),
+  forced?: SeasonalTheme,
+): SeasonalTheme | null {
+  if (THEME_EXCLUDED.includes(pathname.replace(/\/$/, ""))) return null;
+  if (forced) return forced;
+  const today = miamiMonthDay(now);
+  const match = SEASONAL_THEMES.find(({ from, to }) =>
+    from <= to ? today >= from && today <= to : today >= from || today <= to,
+  );
+  return match?.theme ?? null;
 }
 
 export const PHONE = "+17866700164";
