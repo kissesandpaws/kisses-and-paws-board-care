@@ -13,7 +13,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { HalloweenDecor } from "../components/halloween-decor";
-import { halloweenOn } from "../lib/site";
+import { ThanksgivingDecor } from "../components/thanksgiving-decor";
+import { ChristmasDecor } from "../components/christmas-decor";
+import { isSeasonalTheme, seasonalTheme } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -112,9 +114,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const halloween = halloweenOn(pathname);
+  const search = useRouterState({ select: (s) => s.location.search as Record<string, unknown> });
+  // Solo en desarrollo: ?theme=christmas (o thanksgiving, halloween) fuerza un
+  // tema para revisarlo antes de su fecha. En produccion manda el calendario.
+  const forced = import.meta.env.DEV ? search.theme : undefined;
+  const theme = seasonalTheme(pathname, new Date(), isSeasonalTheme(forced) ? forced : undefined);
   return (
-    <html lang="en" className={halloween ? "halloween" : undefined}>
+    <html lang="en" className={theme ?? undefined}>
       <head>
         <HeadContent />
         {/* Google tag. La misma libreria reporta a dos propiedades:
@@ -132,7 +138,9 @@ function RootShell({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        {halloween ? <HalloweenDecor /> : null}
+        {theme === "halloween" ? <HalloweenDecor /> : null}
+        {theme === "thanksgiving" ? <ThanksgivingDecor /> : null}
+        {theme === "christmas" ? <ChristmasDecor /> : null}
         {children}
         <Scripts />
       </body>
