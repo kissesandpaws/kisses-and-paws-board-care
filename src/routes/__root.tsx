@@ -12,6 +12,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { ValentinesDecor } from "../components/valentines-decor";
+import { EasterDecor } from "../components/easter-decor";
+import { July4Decor } from "../components/july4-decor";
+import { DogDayDecor } from "../components/dogday-decor";
 import { HalloweenDecor } from "../components/halloween-decor";
 import { ThanksgivingDecor } from "../components/thanksgiving-decor";
 import { ChristmasDecor } from "../components/christmas-decor";
@@ -115,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const search = useRouterState({ select: (s) => s.location.search as Record<string, unknown> });
-  // Solo en desarrollo: ?theme=christmas (o thanksgiving, halloween) fuerza un
+  // Solo en desarrollo: ?theme=christmas (o cualquier otro del calendario) fuerza un
   // tema para revisarlo antes de su fecha. En produccion manda el calendario.
   const forced = import.meta.env.DEV ? search.theme : undefined;
   const theme = seasonalTheme(pathname, new Date(), isSeasonalTheme(forced) ? forced : undefined);
@@ -138,6 +142,10 @@ function RootShell({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        {theme === "valentines" ? <ValentinesDecor /> : null}
+        {theme === "easter" ? <EasterDecor /> : null}
+        {theme === "july4" ? <July4Decor /> : null}
+        {theme === "dogday" ? <DogDayDecor /> : null}
         {theme === "halloween" ? <HalloweenDecor /> : null}
         {theme === "thanksgiving" ? <ThanksgivingDecor /> : null}
         {theme === "christmas" ? <ChristmasDecor /> : null}
