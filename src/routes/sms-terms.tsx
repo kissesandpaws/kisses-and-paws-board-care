@@ -16,7 +16,7 @@ export const Route = createFileRoute("/sms-terms")({
       {
         name: "description",
         content:
-          "Terms and conditions for the Kisses and Paws Board and Care text messaging program: how to opt in, message frequency, message and data rates, STOP and HELP instructions.",
+          "Terms for the Kisses and Paws Board and Care text messaging program: appointment, pickup and delivery updates and customer-service texts, how to opt in, message frequency, rates, STOP and HELP.",
       },
       { name: "robots", content: "index, follow" },
     ],
@@ -34,9 +34,12 @@ function SmsTermsPage() {
 
       <Section title="Program description">
         <p>
-          {BUSINESS_NAME} sends appointment confirmations and secure payment links by text message
-          (SMS) to customers who have asked to receive them. This is a customer care and transactional program. We do not send
-          marketing or promotional text messages.
+          {BUSINESS_NAME} sends the following text messages (SMS) to customers who have opted in:
+          appointment confirmations, secure payment links, pickup and delivery updates when our
+          driver is on the way, and customer-service messages, including replies to questions you
+          text us. Some messages are sent automatically by our scheduling system; others are written
+          by our staff, who may write in English or Spanish. This is a customer care and
+          transactional program. We do not send marketing or promotional text messages.
         </p>
       </Section>
 
@@ -54,15 +57,21 @@ function SmsTermsPage() {
           .
         </p>
         <p>
-          The consent checkbox is not pre-checked, and it is optional. Consent to receive text
-          messages is not a condition of purchasing any goods or services from us.
+          The consent checkbox is not pre-checked, and it is optional. Signing our service agreement
+          does not enroll you in text messages. Consent to receive text messages is not a condition
+          of purchasing any goods or services from us.
+        </p>
+        <p>
+          If you text us first, we may reply to your conversation. Texting us does not enroll you in
+          appointment or pickup and delivery notices.
         </p>
       </Section>
 
       <Section title="Message frequency">
         <p>
-          Message frequency varies based on your appointments. You will receive up to 10 messages
-          per month.
+          Message frequency varies based on your appointments and on your conversations with us. We
+          will initiate up to 30 messages per month. Replies to texts you send us are in addition to
+          that limit.
         </p>
       </Section>
 
@@ -84,6 +93,11 @@ function SmsTermsPage() {
         <p>
           You may also ask us to remove your number by calling {PHONE_DISPLAY} or emailing{" "}
           {BUSINESS_EMAIL}.
+        </p>
+        <p>
+          Replying STOP ends all text messages from us, including pickup and delivery updates. Other
+          single-word opt-out replies, such as CANCEL or END, have the same effect, so to cancel an
+          appointment please write a full sentence or call us.
         </p>
       </Section>
 

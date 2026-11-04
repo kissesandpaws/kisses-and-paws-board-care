@@ -44,9 +44,11 @@ function PrivacyPage() {
           <li>Information about your pet, such as name, breed, age, and grooming or care notes.</li>
           <li>Appointment details, including the services requested, dates and times.</li>
           <li>
-            Your consent to receive text messages, along with the date and time you gave that
-            consent.
+            Your consent to receive text messages, including its date and time, where you gave it,
+            the wording you agreed to, and, for online opt-ins, your IP address and browser
+            information. If you later opt out, we record that too.
           </li>
+          <li>The content and delivery status of text messages we exchange with you.</li>
         </ul>
         <p>
           Payments are processed by our payment provider. We do not store your full card number on
@@ -56,23 +58,24 @@ function PrivacyPage() {
 
       <Section title="How we use your information">
         <p>
-          We use your information to schedule and confirm appointments, send payment links, answer
-          your questions, and provide our grooming, bathing, dental, daycare, boarding and
-          transportation services. We do not use your information for any purpose you have not
+          We use your information to schedule and confirm appointments, send payment links and pickup
+          and delivery updates, answer your questions, and provide our grooming, bathing, dental,
+          daycare, boarding and transportation services. We do not use your information for any purpose you have not
           agreed to.
         </p>
       </Section>
 
       <Section title="Text messaging (SMS)">
         <p>
-          With your express consent, we send appointment confirmations and secure payment links by
-          text message to the mobile number you provide. Consent to
-          receive text messages is not a condition of purchasing any service.
+          With your express consent, we send appointment confirmations, secure payment links, pickup
+          and delivery updates, and customer-service messages by text message to the mobile number
+          you provide. If you text us first, we may reply to your conversation. Consent to receive
+          text messages is not a condition of purchasing any service.
         </p>
         <ul className="ml-5 list-disc space-y-1">
           <li>
             <strong className="text-foreground">Message frequency:</strong> message frequency
-            varies based on your appointments. You will receive up to 10 messages per month.
+            varies, up to 30 messages a month, plus replies to your own texts.
           </li>
           <li>
             <strong className="text-foreground">Cost:</strong> message and data rates may apply.
@@ -128,6 +131,11 @@ function PrivacyPage() {
           We take reasonable administrative and technical measures to protect your information, and
           we keep it only as long as needed to provide our services and to meet our legal and
           accounting obligations.
+        </p>
+        <p>
+          We keep text messages and their delivery records for up to 24 months. We keep records of your
+          text messaging consent and opt-out for 5 years, so we can honor your choice and demonstrate
+          it.
         </p>
       </Section>
 

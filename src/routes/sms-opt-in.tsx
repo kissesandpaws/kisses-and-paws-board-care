@@ -13,7 +13,7 @@ export const Route = createFileRoute("/sms-opt-in")({
       {
         name: "description",
         content:
-          "How customers of Kisses and Paws Board and Care opt in to appointment confirmation and payment-link text messages when booking online.",
+          "How customers of Kisses and Paws Board and Care opt in to appointment, pickup and delivery, and customer-service text messages when booking online.",
       },
       { name: "robots", content: "index, follow" },
     ],
@@ -22,15 +22,16 @@ export const Route = createFileRoute("/sms-opt-in")({
 });
 
 const CONSENT_TEXT =
-  "I agree to receive appointment confirmation and payment-link SMS from Kisses and Paws Board and Care. Frequency varies with your appointments, up to 10 messages a month. Message and data rates may apply. Reply STOP to cancel or HELP for help. Consent is not required to book. See our Privacy Policy and SMS Terms.";
+  "I agree to receive appointment, pickup/delivery updates and customer-service text messages from Kisses and Paws Board and Care. Message frequency varies, up to 30 messages a month, plus replies to your own texts. Message and data rates may apply. Reply STOP to cancel or HELP for help. Consent is not required to book. See our Privacy Policy and SMS Terms.";
 
 function SmsOptInPage() {
   return (
     <LegalLayout title="How to Opt In to Text Messages">
       <p>
-        {BUSINESS_NAME} sends two kinds of text messages, only to customers who ask for them:
-        appointment confirmations and secure payment links. The only way to opt in is the optional
-        consent checkbox in our online booking form.
+        {BUSINESS_NAME} sends appointment confirmations, secure payment links, pickup and delivery
+        updates, and customer-service messages by text, only to customers who ask for them. Customers
+        opt in with the optional consent checkbox in our online booking form. A customer who texts us
+        first receives replies to that conversation only.
       </p>
 
       <Section title="Step 1: Start a booking">
@@ -59,7 +60,7 @@ function SmsOptInPage() {
         </p>
         <figure className="my-6">
           <img
-            src="/media/sms/sms-opt-in-checkbox.png"
+            src="/media/sms/sms-opt-in-checkbox-v2.png"
             alt="Booking review screen showing the unchecked SMS consent checkbox and its disclosure text"
             width={1040}
             height={1336}
@@ -76,10 +77,12 @@ function SmsOptInPage() {
 
       <Section title="What happens after opting in">
         <p>
-          Customers who checked the box receive a text confirming the date and time of their
-          appointment and, when a payment is due, a text with a secure link to pay for their
-          service. Message frequency varies, up to 10 messages per month. Message and data rates
-          may apply. Reply STOP at any time to stop receiving messages, or HELP for help.
+          Customers who checked the box receive a one-time welcome text; texts confirming their
+          appointment; a secure link when a payment is due; an update when our driver is on the way
+          to pick up their pet or bring their pet home; and customer-service messages from our staff.
+          Message frequency varies, up to 30 messages a month, plus replies to your own texts.
+          Message and data rates may apply. Reply STOP at any time to stop receiving messages, or
+          HELP for help.
         </p>
         <p>
           No mobile information will be shared with third parties or affiliates for marketing or
