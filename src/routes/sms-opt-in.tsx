@@ -13,7 +13,7 @@ export const Route = createFileRoute("/sms-opt-in")({
       {
         name: "description",
         content:
-          "How customers of Kisses and Paws Board and Care opt in to appointment, pickup and delivery, and customer-service text messages when booking online.",
+          "How customers of Kisses and Paws Board and Care opt in to appointment and payment-link text messages when booking online, and to pickup, delivery and customer-service texts in person.",
       },
       { name: "robots", content: "index, follow" },
     ],
@@ -22,16 +22,17 @@ export const Route = createFileRoute("/sms-opt-in")({
 });
 
 const CONSENT_TEXT =
-  "I agree to receive appointment, pickup/delivery updates and customer-service text messages from Kisses and Paws Board and Care. Message frequency varies, up to 30 messages a month, plus replies to your own texts. Message and data rates may apply. Reply STOP to cancel or HELP for help. Consent is not required to book. See our Privacy Policy and SMS Terms.";
+  "I agree to receive appointment confirmation and secure payment-link text messages from Kisses and Paws Board and Care. Message frequency varies, up to 30 messages a month, plus replies to your own texts. Message and data rates may apply. Reply STOP to cancel or HELP for help. Consent is not required to book. See our Privacy Policy and SMS Terms.";
 
 function SmsOptInPage() {
   return (
     <LegalLayout title="How to Opt In to Text Messages">
       <p>
-        {BUSINESS_NAME} sends appointment confirmations, secure payment links, pickup and delivery
-        updates, and customer-service messages by text, only to customers who ask for them. Customers
-        opt in with the optional consent checkbox in our online booking form. A customer who texts us
-        first receives replies to that conversation only.
+        {BUSINESS_NAME} sends appointment confirmations and secure payment links by text, only to
+        customers who ask for them. Customers opt in with the optional consent checkbox in our
+        online booking form. Pickup and delivery updates and customer-service text messages require
+        a separate consent, given in person (see the section below). A customer who texts us first
+        receives replies to that conversation only.
       </p>
 
       <Section title="Step 1: Start a booking">
@@ -47,8 +48,8 @@ function SmsOptInPage() {
 
       <Section title="Step 2: Enter contact details">
         <p>
-          The customer enters their name, mobile phone number and pet details, then continues to
-          the review screen.
+          The customer enters their name, mobile phone number and pet details, then continues to the
+          review screen.
         </p>
       </Section>
 
@@ -60,10 +61,10 @@ function SmsOptInPage() {
         </p>
         <figure className="my-6">
           <img
-            src="/media/sms/sms-opt-in-checkbox-v2.png"
+            src="/media/sms/sms-opt-in-checkbox-v3.png"
             alt="Booking review screen showing the unchecked SMS consent checkbox and its disclosure text"
-            width={1040}
-            height={1336}
+            width={408}
+            height={346}
             className="mx-auto w-full max-w-sm rounded-2xl border border-border shadow-sm"
           />
           <figcaption className="mt-3 text-center text-sm text-ash">
@@ -77,17 +78,25 @@ function SmsOptInPage() {
 
       <Section title="What happens after opting in">
         <p>
-          Customers who checked the box receive a one-time welcome text; texts confirming their
-          appointment; a secure link when a payment is due; an update when our driver is on the way
-          to pick up their pet or bring their pet home; and customer-service messages from our staff.
-          Message frequency varies, up to 30 messages a month, plus replies to your own texts.
-          Message and data rates may apply. Reply STOP at any time to stop receiving messages, or
-          HELP for help.
+          Customers who checked the box receive a one-time welcome text, texts confirming their
+          appointment, and a secure link when a payment is due. Message frequency varies, up to 30
+          messages a month, plus replies to your own texts. Message and data rates may apply. Reply
+          STOP at any time to stop receiving messages, or HELP for help.
+        </p>
+      </Section>
+
+      <Section title="Pickup, delivery and customer-service texts (in person)">
+        <p>
+          Customers may also opt in in person. When a customer signs our client file at our office,
+          our staff records their consent to receive pickup and delivery updates (for example, when
+          our driver is on the way to pick up their pet or bring their pet home) and
+          customer-service messages. The customer can decline, and can leave the program at any time
+          by replying STOP. The same frequency limit, rates and HELP and STOP instructions apply.
         </p>
         <p>
           No mobile information will be shared with third parties or affiliates for marketing or
-          promotional purposes. Text messaging originator opt-in data and consent will not be
-          shared with any third parties.
+          promotional purposes. Text messaging originator opt-in data and consent will not be shared
+          with any third parties.
         </p>
         <p>
           See our{" "}

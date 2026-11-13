@@ -50,7 +50,9 @@ function SmsTermsPage() {
           <a href="/reservar" className="underline">
             kissesandpawsboardandcare.com/reservar
           </a>
-          . See{" "}
+          . Checking the box enrolls you in appointment confirmations and secure payment links only.
+          You may also opt in in person: when you sign our client file at our office, our staff
+          records your consent to pickup and delivery updates and customer-service messages. See{" "}
           <Link to="/sms-opt-in" className="underline">
             how the opt-in works, with a screenshot
           </Link>
@@ -58,8 +60,9 @@ function SmsTermsPage() {
         </p>
         <p>
           The consent checkbox is not pre-checked, and it is optional. Signing our service agreement
-          does not enroll you in text messages. Consent to receive text messages is not a condition
-          of purchasing any goods or services from us.
+          by itself does not enroll you in text messages; consent is recorded only when you opt in.
+          Consent to receive text messages is not a condition of purchasing any goods or services
+          from us.
         </p>
         <p>
           If you text us first, we may reply to your conversation. Texting us does not enroll you in

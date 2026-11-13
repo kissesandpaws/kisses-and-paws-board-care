@@ -29,8 +29,8 @@ function PrivacyPage() {
     <LegalLayout title="Privacy Policy">
       <p>
         {BUSINESS_NAME} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) respects your
-        privacy. This policy explains what information we collect, how we use it, how we protect
-        it, and how we handle your mobile phone number and your consent to receive text messages.
+        privacy. This policy explains what information we collect, how we use it, how we protect it,
+        and how we handle your mobile phone number and your consent to receive text messages.
       </p>
       <p>
         This is the only privacy policy that applies to {BUSINESS_NAME}, to our website, and to our
@@ -38,9 +38,13 @@ function PrivacyPage() {
       </p>
 
       <Section title="Information we collect">
-        <p>When you book an appointment, contact us, or fill out our client intake form, we collect:</p>
+        <p>
+          When you book an appointment, contact us, or fill out our client intake form, we collect:
+        </p>
         <ul className="ml-5 list-disc space-y-1">
-          <li>Your name and contact details, including your mobile phone number and email address.</li>
+          <li>
+            Your name and contact details, including your mobile phone number and email address.
+          </li>
           <li>Information about your pet, such as name, breed, age, and grooming or care notes.</li>
           <li>Appointment details, including the services requested, dates and times.</li>
           <li>
@@ -58,19 +62,21 @@ function PrivacyPage() {
 
       <Section title="How we use your information">
         <p>
-          We use your information to schedule and confirm appointments, send payment links and pickup
-          and delivery updates, answer your questions, and provide our grooming, bathing, dental,
-          daycare, boarding and transportation services. We do not use your information for any purpose you have not
-          agreed to.
+          We use your information to schedule and confirm appointments, send payment links and
+          pickup and delivery updates, answer your questions, and provide our grooming, bathing,
+          dental, daycare, boarding and transportation services. We do not use your information for
+          any purpose you have not agreed to.
         </p>
       </Section>
 
       <Section title="Text messaging (SMS)">
         <p>
-          With your express consent, we send appointment confirmations, secure payment links, pickup
-          and delivery updates, and customer-service messages by text message to the mobile number
-          you provide. If you text us first, we may reply to your conversation. Consent to receive
-          text messages is not a condition of purchasing any service.
+          With your express consent, we send appointment confirmations and secure payment links by
+          text message to the mobile number you provide when you check the consent box at booking.
+          With separate consent given in person when you sign our client file, we also send pickup
+          and delivery updates and customer-service messages to the mobile number on your client
+          file. If you text us first, we may reply to your conversation. Consent to receive text
+          messages is not a condition of purchasing any service.
         </p>
         <ul className="ml-5 list-disc space-y-1">
           <li>
@@ -133,9 +139,9 @@ function PrivacyPage() {
           accounting obligations.
         </p>
         <p>
-          We keep text messages and their delivery records for up to 24 months. We keep records of your
-          text messaging consent and opt-out for 5 years, so we can honor your choice and demonstrate
-          it.
+          We keep text messages and their delivery records for up to 24 months. We keep records of
+          your text messaging consent and opt-out for 5 years, so we can honor your choice and
+          demonstrate it.
         </p>
       </Section>
 
