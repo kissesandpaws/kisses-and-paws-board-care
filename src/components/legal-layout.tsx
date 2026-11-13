@@ -7,7 +7,7 @@ import logoAsset from "@/assets/logo.png.asset.json";
 export const BUSINESS_NAME = "Kisses and Paws Board and Care";
 export const BUSINESS_ADDRESS = "5760 SW 8th Street, Suite 300, West Miami, FL 33144";
 export const BUSINESS_EMAIL = "kissesandpawsboardandcare@gmail.com";
-export const LAST_UPDATED = "November 13, 2026";
+export const LAST_UPDATED = "November 14, 2026";
 
 export function LegalLayout({ title, children }: { title: string; children: ReactNode }) {
   return (
