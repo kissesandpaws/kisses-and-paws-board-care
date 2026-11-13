@@ -98,9 +98,9 @@ function SmsTermsPage() {
           {BUSINESS_EMAIL}.
         </p>
         <p>
-          Replying STOP ends all text messages from us, including pickup and delivery updates. Other
-          single-word opt-out replies, such as CANCEL or END, have the same effect, so to cancel an
-          appointment please write a full sentence or call us.
+          Replying STOP ends all text messages from us, including pickup and delivery updates. The
+          single-word replies CANCEL, END, QUIT and UNSUBSCRIBE have the same effect, so to cancel
+          an appointment please write a full sentence or call us.
         </p>
       </Section>
 
